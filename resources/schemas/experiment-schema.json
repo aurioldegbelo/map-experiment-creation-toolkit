@@ -1,0 +1,38 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "id",
+        "title",
+        "authors",
+        "tasks"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "$schema": {
+            "type": "string",
+            "format": "uri-reference"
+        },
+        "id": {
+            "type": "string"
+        },
+        "title": {
+            "type": "string"
+        },
+        "description": {
+            "type": "string"
+        },
+        "authors": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        },
+        "tasks": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            }
+        }
+    }
+}

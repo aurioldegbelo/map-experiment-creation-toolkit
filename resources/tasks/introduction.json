@@ -1,0 +1,14 @@
+{
+    "$schema": "../schemas/task-schema.json",
+    "id": "introduction",
+    "title": "Introduction",
+    "widgets": [
+        {
+            "id": "textWidget01",
+            "type": "text",
+            "properties": {
+                "value": "Welcome to this experiment."
+            }
+        }
+    ]
+}
