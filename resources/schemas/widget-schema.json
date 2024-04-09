@@ -18,7 +18,8 @@
             "type": "string",
             "enum": [
                 "text",
-                "prototype"
+                "prototype",
+                "input"
             ]
         },
         "properties": {
