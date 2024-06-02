@@ -2,59 +2,42 @@
     "$schema": "http://json-schema.org/draft-07/schema#",
     "type": "object",
     "required": [
+        "question",
         "type"
     ],
     "additionalProperties": false,
     "properties": {
-        "$schema": {
-            "type": "string",
-            "format": "uri-reference"
+        "question": {
+            "type": "string"
         },
         "type": {
             "type": "string",
             "enum": [
                 "text",
-                "input",
-                "map"
+                "likert"
             ]
         },
         "properties": {
             "type": "object"
-        }
-    },
-    "if": {
-        "properties": {
-            "type": {
-                "const": "text"
-            }
-        }
-    },
-    "then": {
-        "properties": {
-            "properties": {
-                "$ref": "./widgets/text-widget-schema.json"
-            }
-        }
-    },
-    "else": {
+        },
         "if": {
             "properties": {
                 "type": {
-                    "const": "input"
+                    "const": "text"
                 }
             }
         },
         "then": {
             "properties": {
                 "properties": {
-                    "$ref": "./widgets/input-widget-schema.json"
+                    "$ref": "./inputs/text-input-widget-schema.json"
                 }
             }
         },
         "else": {
             "properties": {
                 "properties": {
-                    "$ref": "./widgets/map-widget-schema.json"
+                    "$ref": "./inputs/likert-input-widget-schema.json"
                 }
             }
         }

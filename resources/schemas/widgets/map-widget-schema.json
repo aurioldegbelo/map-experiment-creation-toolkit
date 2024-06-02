@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "required": [
+        "data",
+        "variableName",
+        "classificationMethod",
+        "colorScheme"
+    ],
+    "additionalProperties": false,
+    "properties": {
+        "title": {
+            "type": "string"
+        },
+        "data": {
+            "type": "string",
+            "format": "uri-reference"
+        },
+        "variableName": {
+            "type": "string"
+        },
+        "classificationMethod": {
+            "type": "string",
+            "enum": [
+                "equal interval",
+                "quantiles",
+                "jenks"
+            ]
+        },
+        "colorScheme": {
+            "anyOf": [
+                {
+                    "type": "object",
+                    "properties": {
+                        "numberOfClasses": {
+                            "type": "integer",
+                            "minimum": 3,
+                            "maximum": 12
+                        },
+                        "type": {
+                            "type": "string",
+                            "enum": [
+                                "sequential",
+                                "diverging",
+                                "qualitative"
+                            ]
+                        },
+                        "scheme": {
+                            "type": "string"
+                        }
+                    }
+                },
+                {
+                    "type": "string",
+                    "format": "uri-reference"
+                }
+            ]
+        }
+    }
+}
