@@ -1,0 +1,183 @@
+{
+    "$schema": "../../../models/experiment-schema.json",
+    "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
+    "description": "This is an example experiment.",
+    "authors": [
+        {
+            "firstName": "Merel",
+            "lastName": "Vogel",
+            "email": "m.vogel@52north.de"
+        },
+        {
+            "firstName": "Max",
+            "lastName": "Gadomski",
+            "email": "max.gadomski@uni-muenster.de"
+        }
+    ],
+    "tasks": [
+        {
+            "title": "Introduction",
+            "widgets": [
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "This questionnaire is part of my master's thesis for the programme Geoinformatics and Spatial Data Science at the University of Münster (DE). It was written in collaboration with 52° North GmbH and is a contribution to the I-CISK project."
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "I-CISK is an international research project funded by the EU that aims to develop tailored climate services for seven regions spanning across Europe. Uncertainty is an inherent part of climate predictions and will hence be a part of the climate services. Uncertainty, in the context of climate predictions and projections, refers to the inherent variability and imprecision associated with forecasting future climatic conditions. This questionnaire tries to investigate how to best communicate this uncertainty in map visualizations."
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "In order to investigate this, we have taken the Andalucia region in Spain as an example. We’d like to understand what temperatures in June 2030 might be like. Based on an artificial dataset and predictions, four different types of map visualizations were developed and can be found in the accompanying app: https://52north.shinyapps.io/UncertaintyViz/ . The maps all use the same simulations, but are different ways of displaying the outcome of the simulations."
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "The goal of this questionnaire is to find out which type of map is the most suitable for understanding the uncertainty inherent to these forecasts. We highly value your input in shaping effective climate communication!"
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "heading": "Privacy and data protection statement",
+                        "text": "The data collected in this questionnaire will include your responses to the questions presented. The information collected is intended solely for the purpose of research and analysis. It will not be used for any commercial, marketing, or promotional activities. We will not collect or store any personally identifiable information (PII) such as names, email addresses, or other identifying details. Your responses will remain anonymous."
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "heading": "Consent",
+                        "text": "Participation in this questionnaire is entirely voluntary. You are not required to provide any information if you do not wish to do so. By proceeding with this questionnaire, you consent to the collection and use of your responses as described in the privacy statement."
+                    }
+                },
+                {
+                    "type": "text",
+                    "properties": {
+                        "heading": "Contact",
+                        "text": "If you have any questions about the questionnaire or concerns about the privacy of your data, please contact me (Merel) at the following email address: m.vogel@52north.org."
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Introductory Questions",
+            "widgets": [
+                {
+                    "type": "input",
+                    "properties": {
+                        "question": "How often do you use digital maps?",
+                        "type": "likert",
+                        "properties": {
+                            "options": [
+                                "Never",
+                                "Once a month or less",
+                                "Several times a month",
+                                "Several times a week",
+                                "Daily"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "input",
+                    "properties": {
+                        "question": "Have you heard of or seen uncertainty information in climate forecasts before this survey?",
+                        "type": "likert",
+                        "properties": {
+                            "options": [
+                                "I have never heard of it.",
+                                "I have heard of uncertainty information, but not seen it in forecasts",
+                                "I have heard of it, but do not understand it",
+                                "I understand it to some extent",
+                                "I am very familiar with uncertainty information in climate forecasts"
+                            ]
+                        }
+                    }
+                },
+                {
+                    "type": "input",
+                    "properties": {
+                        "question": "How are you related to the I-CISK project?",
+                        "type": "likert",
+                        "properties": {
+                            "options": [
+                                "I am a project partner.",
+                                "I am a stakeholder in a living lab.",
+                                "Not related, I am just interested in the survey.",
+                                "I do not want to answer this question.",
+                                "I am very familiar with uncertainty information in climate forecasts.",
+                                "Other"
+                            ]
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "title": "A single map.",
+            "widgets": [
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "Please use the map below to answer the following questions."
+                    }
+                },
+                {
+                    "type": "map",
+                    "properties": {
+                        "title": "USA: National Obesity Rate By State 2015.",
+                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "variableName": "Obesity",
+                        "classificationMethod": "equal interval",
+                        "colorScheme": {
+                            "numberOfClasses": 3,
+                            "type": "diverging",
+                            "scheme": "Spectral"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "title": "A Comparison of two maps.",
+            "widgets": [
+                {
+                    "type": "text",
+                    "properties": {
+                        "text": "Please use the two maps below to answer the following questions."
+                    }
+                },
+                {
+                    "type": "map",
+                    "properties": {
+                        "title": "Number of Classes = 3",
+                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "variableName": "Obesity",
+                        "classificationMethod": "equal interval",
+                        "colorScheme": {
+                            "numberOfClasses": 3,
+                            "type": "diverging",
+                            "palette": "Spectral"
+                        }
+                    }
+                },
+                {
+                    "type": "map",
+                    "properties": {
+                        "title": "Number of Classes = 5 via Link",
+                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "variableName": "Obesity",
+                        "classificationMethod": "equal interval",
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
+                    }
+                }
+            ]
+        }
+    ]
+}

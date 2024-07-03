@@ -45,7 +45,7 @@
                                 "qualitative"
                             ]
                         },
-                        "scheme": {
+                        "palette": {
                             "type": "string"
                         }
                     }
