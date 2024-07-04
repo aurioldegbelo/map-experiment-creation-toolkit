@@ -10,7 +10,10 @@
             "type": "array",
             "items": {
                 "type": "string"
-            }
+            },
+            "minItems": 5,
+            "maxItems": 7,
+            "uniqueItems": true
         }
     }
 }

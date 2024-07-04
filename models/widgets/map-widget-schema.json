@@ -30,25 +30,7 @@
         "colorScheme": {
             "anyOf": [
                 {
-                    "type": "object",
-                    "properties": {
-                        "numberOfClasses": {
-                            "type": "integer",
-                            "minimum": 3,
-                            "maximum": 12
-                        },
-                        "type": {
-                            "type": "string",
-                            "enum": [
-                                "sequential",
-                                "diverging",
-                                "qualitative"
-                            ]
-                        },
-                        "palette": {
-                            "type": "string"
-                        }
-                    }
+                    "$ref": "../types/color-scheme-schema.json"
                 },
                 {
                     "type": "string",
