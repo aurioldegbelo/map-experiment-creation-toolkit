@@ -27,18 +27,6 @@
                 {
                     "type": "text",
                     "properties": {
-                        "text": "I-CISK is an international research project funded by the EU that aims to develop tailored climate services for seven regions spanning across Europe. Uncertainty is an inherent part of climate predictions and will hence be a part of the climate services. Uncertainty, in the context of climate predictions and projections, refers to the inherent variability and imprecision associated with forecasting future climatic conditions. This questionnaire tries to investigate how to best communicate this uncertainty in map visualizations."
-                    }
-                },
-                {
-                    "type": "text",
-                    "properties": {
-                        "text": "In order to investigate this, we have taken the Andalucia region in Spain as an example. We’d like to understand what temperatures in June 2030 might be like. Based on an artificial dataset and predictions, four different types of map visualizations were developed and can be found in the accompanying app: https://52north.shinyapps.io/UncertaintyViz/ . The maps all use the same simulations, but are different ways of displaying the outcome of the simulations."
-                    }
-                },
-                {
-                    "type": "text",
-                    "properties": {
                         "text": "The goal of this questionnaire is to find out which type of map is the most suitable for understanding the uncertainty inherent to these forecasts. We highly value your input in shaping effective climate communication!"
                     }
                 },
@@ -99,28 +87,11 @@
                             ]
                         }
                     }
-                },
-                {
-                    "type": "input",
-                    "properties": {
-                        "question": "How are you related to the I-CISK project?",
-                        "type": "likert",
-                        "properties": {
-                            "options": [
-                                "I am a project partner.",
-                                "I am a stakeholder in a living lab.",
-                                "Not related, I am just interested in the survey.",
-                                "I do not want to answer this question.",
-                                "I am very familiar with uncertainty information in climate forecasts.",
-                                "Other"
-                            ]
-                        }
-                    }
                 }
             ]
         },
         {
-            "title": "A single map.",
+            "title": "Map.",
             "widgets": [
                 {
                     "type": "text",

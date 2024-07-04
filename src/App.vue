@@ -8,7 +8,7 @@ import { defineComponent } from 'vue';
 import Leaflet from 'leaflet';
 
 import 'leaflet/dist/leaflet.css';
-import experiment from '../data/experiments/UncertaintyViz/UncertaintyViz.json';
+import experiment from '../data/experiments/UncertaintyViz/experiment.json';
 import data from '../data/experiments/UncertaintyViz/data/LakeCounty_Health_NationalObesityByState_2015.json';
 import type { Feature } from 'geojson';
 
