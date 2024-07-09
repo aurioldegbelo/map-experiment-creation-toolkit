@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../models/experiment-schema.json",
+    "$schema": "../../../schemas/experiment-schema.json",
     "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
     "description": "This is an example experiment.",
     "authors": [
