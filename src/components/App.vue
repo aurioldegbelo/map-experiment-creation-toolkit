@@ -25,6 +25,7 @@ import type  Experiment from '../types/Experiment';
 import type Task from '../types/Task';
 
 import TaskNavigation from './TaskNavigation.vue';
+
 import data from '../../data/experiments/UncertaintyViz/experiment.json';
 
 type AppData = {
