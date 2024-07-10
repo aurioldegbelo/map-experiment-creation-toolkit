@@ -15,7 +15,9 @@
             <template v-for="(task, index) in tasks">
                 <v-stepper-window-item :value="index + 1">
                     <v-card :title="task.title">
-                        Lorem ipsum blablabla
+                        <template v-for="widget in task.widgets">
+                            <Widget :type="widget.type"></Widget>
+                        </template>
                     </v-card>
                 </v-stepper-window-item>
             </template>
@@ -26,7 +28,12 @@
 <script lang="ts">
 import type Task from '../types/Task';
 
+import Widget from './Widget.vue';
+
 export default {
+    components: {
+        Widget
+    },
     props: {
         value: {
             type: Number,

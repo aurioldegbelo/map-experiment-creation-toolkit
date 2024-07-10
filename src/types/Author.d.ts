@@ -3,6 +3,6 @@ type Author = {
     firstName: string,
     lastName: string,
     email: string
-}
+};
 
-export default Author;
+export { Author };
