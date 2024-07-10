@@ -16,7 +16,11 @@
                 <v-stepper-window-item :value="index + 1">
                     <v-card :title="task.title">
                         <template v-for="widget in task.widgets">
-                            <Widget :type="widget.type"></Widget>
+                            <Widget 
+                                :type="widget.type"
+                                :properties="widget.properties"
+                            >
+                            </Widget>
                         </template>
                     </v-card>
                 </v-stepper-window-item>
@@ -26,7 +30,8 @@
 </template>
 
 <script lang="ts">
-import type Task from '../types/Task';
+import type { PropType } from 'vue';
+import type { Task } from '../types/Task';
 
 import Widget from './Widget.vue';
 
@@ -40,7 +45,7 @@ export default {
             default: 1
         },
         tasks: {
-            type: Array<Task>,
+            type: Array as PropType<Task[]>,
             default: () => []
         }
     },
