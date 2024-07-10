@@ -5,83 +5,58 @@
             :title="title"
         ></v-app-bar>
         <v-main>
-            <v-stepper
+            <TaskNavigation
                 v-model="step"
-                alt-labels
+                :tasks="tasks"
             >
-                <v-stepper-header>
-                    <template v-for="(title, index) in taskTitles">
-                        <v-stepper-item 
-                            :title="title"
-                            :value="index + 1"
-                        ></v-stepper-item>
-                    </template>
-                </v-stepper-header>
-                <v-stepper-window>
-                    <template v-for="(title, index) in taskTitles">
-                        <v-stepper-window-item :value="index + 1">
-                            <v-card :title="title">
-                                Lorem ipsum blablabla
-                            </v-card>
-                        </v-stepper-window-item>
-                    </template>
-                </v-stepper-window>
-            </v-stepper>
+            </TaskNavigation>
         </v-main>
         <v-footer app>
-            <v-stepper-actions></v-stepper-actions>
+            <v-stepper-actions
+                @click:prev="step--"
+                @click:next="step++"
+            ></v-stepper-actions>
         </v-footer>
     </v-app>
 </template>
 
 <script lang="ts">
+import type  Experiment from './types/Experiment';
+import type Task from './types/Task';
+
+import TaskNavigation from './TaskNavigation.vue';
 import data from '../data/experiments/UncertaintyViz/experiment.json';
 
-type Author = {
-    title?: string,
-    firstName: string,
-    lastName: string,
-    email: string
-}
-
-enum WidgetType {
-    "text",
-    "input",
-    "map"
-}
-
-type Widget = {
-    type: string
-    properties: Object
-}
-
-type Task = {
-    title: string,
-    widgets: Widget[]
-}
-
-type Experiment = {
-    title: string,
-    description: string,
-    authors: Author[],
-    tasks: Task[]
+type AppData = {
+    experiment: Experiment,
+    step: number
 }
 
 export default {
-    data() {
+    components: {
+        TaskNavigation
+    },
+    data(): AppData {
         return {
-            experiment: {} as Experiment,
-            title: "" as string,
-            taskTitles: [] as string[],
-            step: 1 as number
+            experiment: {
+                title: "",
+                description: "",
+                authors: [],
+                tasks: []
+            },
+            step: 1
         }
     },
-    computed: {},
-    methods: {},
+    computed: {
+        title(): string {
+            return this.experiment?.title;
+        },
+        tasks(): Task[] {
+            return this.experiment?.tasks;
+        }
+    },
     mounted() {
         this.experiment = data;
-        this.title = this.experiment.title;
-        this.taskTitles = this.experiment.tasks.map(task => task.title);
     }
 };
 </script>
