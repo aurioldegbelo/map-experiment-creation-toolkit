@@ -19,6 +19,9 @@
         "variableName": {
             "type": "string"
         },
+        "numberOfClasses": {
+            "type": "integer"
+        },
         "classificationMethod": {
             "type": "string",
             "enum": [
@@ -28,15 +31,7 @@
             ]
         },
         "colorScheme": {
-            "anyOf": [
-                {
-                    "$ref": "../types/color-scheme-schema.json"
-                },
-                {
-                    "type": "string",
-                    "format": "uri-reference"
-                }
-            ]
+            "type": "string"
         }
     }
 }

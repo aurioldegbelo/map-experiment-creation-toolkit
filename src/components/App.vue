@@ -1,28 +1,19 @@
 <template>
     <v-app>
-        <v-app-bar 
-            flat
-            :title="title"
-        ></v-app-bar>
+        <v-app-bar flat :title="title"></v-app-bar>
         <v-main>
-            <TaskNavigation
-                v-model="step"
-                :tasks="tasks"
-            >
+            <TaskNavigation v-model="step" :tasks="tasks">
             </TaskNavigation>
         </v-main>
         <v-footer app>
-            <v-stepper-actions
-                @click:prev="step--"
-                @click:next="step++"
-            ></v-stepper-actions>
+            <v-stepper-actions @click:prev="step--" @click:next="step++"></v-stepper-actions>
         </v-footer>
     </v-app>
 </template>
 
 <script lang="ts">
-import type  Experiment from '../types/Experiment';
-import type Task from '../types/Task';
+import type { Experiment } from '../types/Experiment';
+import type { Task } from '../types/Task';
 
 import TaskNavigation from './TaskNavigation.vue';
 

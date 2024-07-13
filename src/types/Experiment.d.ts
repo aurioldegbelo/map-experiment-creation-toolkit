@@ -8,4 +8,4 @@ type Experiment = {
     tasks: Task[]
 };
 
-export default Experiment;
+export { Experiment };
