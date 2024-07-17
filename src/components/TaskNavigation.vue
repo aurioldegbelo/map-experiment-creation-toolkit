@@ -1,14 +1,8 @@
 <template>
-    <v-stepper
-        v-model="selectedTask"
-        alt-labels
-    >
+    <v-stepper v-model="selectedTask" alt-labels>
         <v-stepper-header>
             <template v-for="(task, index) in tasks">
-                <v-stepper-item 
-                    :title="task.title"
-                    :value="index + 1"
-                ></v-stepper-item>
+                <v-stepper-item :title="task.title" :value="index + 1"></v-stepper-item>
             </template>
         </v-stepper-header>
         <v-stepper-window>
@@ -16,10 +10,7 @@
                 <v-stepper-window-item :value="index + 1">
                     <v-card :title="task.title">
                         <template v-for="widget in task.widgets">
-                            <Widget 
-                                :type="widget.type"
-                                :properties="widget.properties"
-                            >
+                            <Widget :type="widget.type" :properties="widget.properties">
                             </Widget>
                         </template>
                     </v-card>

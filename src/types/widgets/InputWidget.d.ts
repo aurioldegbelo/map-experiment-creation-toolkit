@@ -6,10 +6,12 @@ enum InputWidgetType {
     likert = "likert"
 };
 
+type InputWidgetPropertiesProperties = TextInputWidgetProperties | LikertInputWidgetProperties;
+
 type InputWidgetProperties = {
     question: string,
     type: InputWidgetType
-    properties: TextInputWidgetProperties | LikertInputWidgetProperties
+    properties: InputWidgetPropertiesProperties
 };
 
-export { InputWidgetProperties };
+export { InputWidgetType, InputWidgetPropertiesProperties, InputWidgetProperties };

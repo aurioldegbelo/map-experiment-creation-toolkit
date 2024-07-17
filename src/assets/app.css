@@ -54,3 +54,7 @@ body {
 .v-app-bar {
   text-align: center;
 }
+
+.widget {
+  padding-bottom: var(--padding);
+}
