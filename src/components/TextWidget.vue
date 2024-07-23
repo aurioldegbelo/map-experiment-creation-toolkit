@@ -1,5 +1,7 @@
 <template>
-    <h4>{{ heading }}</h4>
+    <h4 v-if="heading">
+        {{ heading }}
+    </h4>
     <p>{{ text }}</p>
 </template>
 
@@ -15,10 +17,6 @@ export default {
             type: String,
             required: true
         }
-    },
-    mounted() {
-        console.log(this.heading);
-        console.log(this.text);
     }
 }
 </script>

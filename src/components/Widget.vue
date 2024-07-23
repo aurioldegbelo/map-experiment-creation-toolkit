@@ -1,13 +1,24 @@
 <template>
     <div class="widget">
-        <TextWidget v-if="type === 'text'" :heading="properties.heading" :text="properties.text">
+        <TextWidget v-if="type === 'text'" 
+            :heading="properties.heading" 
+            :text="properties.text"
+        >
         </TextWidget>
-        <InputWidget v-if="type === 'input'" :question="properties.question" :type="properties.type"
-            :properties="properties.properties">
+        <InputWidget v-if="type === 'input'" 
+            :question="properties.question" 
+            :type="properties.type"
+            :properties="properties.properties"
+        >
         </InputWidget>
-        <MapWidget v-if="type === 'map'" :title="properties.title" :data="properties.data"
-            :variableName="properties.variableName" :numberOfClasses="properties.numberOfClasses"
-            :classificationMethod="properties.classificationMethod" :colorScheme="properties.colorScheme">
+        <MapWidget v-if="type === 'map'" 
+            :title="properties.title" 
+            :data="properties.data"
+            :variableName="properties.variableName" 
+            :numberOfClasses="properties.numberOfClasses"
+            :classificationMethod="properties.classificationMethod" 
+            :colorScheme="properties.colorScheme"
+        >
         </MapWidget>
     </div>
 </template>
