@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "leaflet": "^1.9.4",
+    "vite-plugin-vuetify": "^2.0.3",
     "vue": "^3.4.21",
     "vuetify": "^3.6.8"
   },
