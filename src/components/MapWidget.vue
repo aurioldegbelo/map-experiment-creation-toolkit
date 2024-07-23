@@ -6,14 +6,20 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import type { ClassificationMethod } from '@/types/widgets/MapWidget';
-import type { Map } from 'leaflet';
+import type { Map, MapOptions } from 'leaflet';
+import type { GeoJsonObject } from 'geojson';
 
 import Leaflet from 'leaflet';
+
+import json from 'experiments/UncertaintyViz/src/LakeCounty_Health_NationalObesityByState_2015.json';
 
 import 'leaflet/dist/leaflet.css';
 
 type MapWidgetData = {
-    id: string
+    id: string,
+    map: Map,
+    mapOptions: MapOptions,
+    mapData: GeoJsonObject
 }
 
 export default {
@@ -45,10 +51,14 @@ export default {
             required: true
         }
     },
-    data() {
+    data(): MapWidgetData {
         return {
             id: `map_${Date.now()}`,
-            map: {} as Map
+            map: {} as Map,
+            mapOptions: {
+                zoomSnap: 0
+            } as MapOptions,
+            mapData: {} as GeoJsonObject
         }
     },
     mounted() {
@@ -62,15 +72,24 @@ export default {
     },
     methods: {
         _initMap() {
-            this.map = Leaflet.map(this.id);
-
-            const tileLayer = Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
+            this.map = Leaflet.map(this.id, { zoomSnap: this.mapOptions.zoomSnap });
+            //this.map.setView([51.505, -0.09], 13);
+            
+            //TODO: Configure basemaps via leaflet-providers (https://leaflet-extras.github.io/leaflet-providers/preview/index.html)
+            const basemapLayer = Leaflet.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
             });
-            
-            this.map.addLayer(tileLayer);
-            this.map.setView([51.505, -0.09], 13);
+
+            this.map.addLayer(basemapLayer);
+
+            //TODO: Data has to be dynamically imported here based on the name of the experiment
+            //FIXME: Input data has to follow GeoJSON specification
+            this.mapData = json;
+            const dataLayer = Leaflet.geoJSON(this.mapData);
+            const bounds = dataLayer.getBounds();
+            this.map.addLayer(dataLayer);
+
+            this.map.fitBounds(bounds);
         }
     }
 }

@@ -58,3 +58,12 @@ body {
 .widget {
   padding-bottom: var(--padding);
 }
+
+.v-stepper-item {
+  padding: 0 !important
+}
+
+.map {
+  height: 50vh;
+  width: 50%;
+}

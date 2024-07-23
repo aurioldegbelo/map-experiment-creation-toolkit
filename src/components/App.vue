@@ -36,7 +36,7 @@ export default {
                 authors: [],
                 tasks: []
             },
-            step: 1
+            step: 3
         }
     },
     computed: {
