@@ -6,7 +6,7 @@
 <script lang="ts">
 import type { PropType } from 'vue';
 import type { ClassificationMethod } from '@/types/widgets/MapWidget';
-import type { Map, MapOptions } from 'leaflet';
+import type { Map, MapOptions, GeoJSONOptions, PathOptions } from 'leaflet';
 import type { GeoJsonObject } from 'geojson';
 
 import Leaflet from 'leaflet';
@@ -62,8 +62,6 @@ export default {
         }
     },
     mounted() {
-        //console.log(this.title);
-        //console.log(this.data);
         //console.log(this.variableName);
         //console.log(this.numberOfClasses);
         //console.log(this.classificationMethod);
@@ -71,7 +69,7 @@ export default {
         this._initMap();
     },
     methods: {
-        _initMap() {
+        async _initMap() {
             this.map = Leaflet.map(this.id, { zoomSnap: this.mapOptions.zoomSnap });
             //this.map.setView([51.505, -0.09], 13);
             
@@ -82,14 +80,31 @@ export default {
 
             this.map.addLayer(basemapLayer);
 
-            //TODO: Data has to be dynamically imported here based on the name of the experiment
-            //FIXME: Input data has to follow GeoJSON specification
-            this.mapData = json;
-            const dataLayer = Leaflet.geoJSON(this.mapData);
+            //FIXME: Ensure input data follows GeoJSON spec
+            const dataSource = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/src/${this.data}`;
+
+            this.mapData = await (await fetch(dataSource)).json();
+
+            const layerOptions: GeoJSONOptions = {
+                style: (feature): PathOptions => {
+                    return {
+                        fillColor: this.getColor(feature?.properties[this.variableName])
+                    }
+                }
+            }
+
+            const dataLayer = Leaflet.geoJSON(this.mapData, layerOptions);
             const bounds = dataLayer.getBounds();
             this.map.addLayer(dataLayer);
 
             this.map.fitBounds(bounds);
+        },
+        getColor(value: number): string {
+            if (value < 30) {
+                return "green";
+            } else {
+                return "red";
+            }
         }
     }
 }

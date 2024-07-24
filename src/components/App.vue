@@ -17,7 +17,7 @@ import type { Task } from '../types/Task';
 
 import TaskNavigation from './TaskNavigation.vue';
 
-import data from '../../data/experiments/UncertaintyViz/experiment.json';
+import data from 'experiments/UncertaintyViz/experiment.json';
 
 type AppData = {
     experiment: Experiment,
@@ -48,7 +48,13 @@ export default {
         }
     },
     mounted() {
-        this.experiment = data;
+        this._init();
+    },
+    methods: {
+        async _init() {
+            const source = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/config.json`;
+            this.experiment = await (await fetch(source)).json();
+        }
     }
 };
 </script>
