@@ -102,12 +102,11 @@
                 {
                     "type": "map",
                     "properties": {
-                        "title": "USA: National Obesity Rate By State 2015.",
+                        "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5",
-                        "numberOfClasses": 5
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=3"
                     }
                 }
             ]
@@ -124,23 +123,21 @@
                 {
                     "type": "map",
                     "properties": {
-                        "title": "Number of Classes = 3",
+                        "title": "USA: National Obesity Rate By State 2015 (5 classes, equal interval)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=3",
-                        "numberOfClasses": 4
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
                     }
                 },
                 {
                     "type": "map",
                     "properties": {
-                        "title": "Number of Classes = 5 via Link",
+                        "title": "USA: National Obesity Rate By State 2015 (5 classes, jenks)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
-                        "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5",
-                        "numberOfClasses": 5
+                        "classificationMethod": "jenks",
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
                     }
                 }
             ]
