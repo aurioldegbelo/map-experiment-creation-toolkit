@@ -15,7 +15,6 @@
             :title="properties.title" 
             :data="properties.data"
             :variableName="properties.variableName" 
-            :numberOfClasses="properties.numberOfClasses"
             :classificationMethod="properties.classificationMethod" 
             :colorScheme="properties.colorScheme"
         >

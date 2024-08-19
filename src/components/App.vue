@@ -17,8 +17,6 @@ import type { Task } from '../types/Task';
 
 import TaskNavigation from './TaskNavigation.vue';
 
-import data from 'experiments/UncertaintyViz/experiment.json';
-
 type AppData = {
     experiment: Experiment,
     step: number
@@ -36,7 +34,7 @@ export default {
                 authors: [],
                 tasks: []
             },
-            step: 3
+            step: 1
         }
     },
     computed: {

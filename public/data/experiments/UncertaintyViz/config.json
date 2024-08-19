@@ -106,7 +106,8 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https: //colorbrewer2.org/?type=diverging&scheme=Spectral&n=3"
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5",
+                        "numberOfClasses": 5
                     }
                 }
             ]
@@ -127,7 +128,8 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https: //colorbrewer2.org/?type=diverging&scheme=Spectral&n=3"
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=3",
+                        "numberOfClasses": 4
                     }
                 },
                 {
@@ -137,7 +139,8 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
+                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5",
+                        "numberOfClasses": 5
                     }
                 }
             ]
