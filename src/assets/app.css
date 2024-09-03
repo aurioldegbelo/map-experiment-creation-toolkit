@@ -67,3 +67,38 @@ body {
   height: 50vh;
   width: 50%;
 }
+
+.legend {
+  background: white;
+  display: grid;
+  grid-template-areas: 
+    'top top'
+    'left right';
+  gap: 10px;
+  padding: 10px;
+}
+
+.title {
+  grid-area: top;
+}
+
+.colors, .labels {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.colors {
+  grid-area: left;
+}
+
+.labels {
+  grid-area: right;
+}
+
+.legend-color {
+  width: 20px;
+  height: 20px;
+  border: 1px solid black;
+}

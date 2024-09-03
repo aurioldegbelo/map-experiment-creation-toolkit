@@ -1,18 +1,25 @@
 <template>
     <h4>{{ title }}</h4>
-    <div :id="id" class="map"></div>
+    <div :id="mapId" class="map"></div>
+    <div :id="legendId" class="legend">
+        <div class="title">
+            <h4>{{ variableName }}</h4>
+        </div>
+        <div class="colors">
+            <div v-for="color in colorPalette" class="legend-color" :style="{ backgroundColor: color }"></div>
+        </div>
+        <div class="labels">
+            <span v-for="label in labels">
+                {{ label }}
+            </span>
+        </div>
+    </div>
 </template>
 
 <script lang="ts">
 import type { ClassificationMethod } from '@/types/widgets/MapWidget';
 import type { PropType } from 'vue';
-import type {
-    GeoJSONOptions,
-    Map,
-    MapOptions,
-    PathOptions
-} from 'leaflet';
-import type { FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection } from 'geojson';
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -31,7 +38,7 @@ type MapWidgetData = {
     mapOptions: Leaflet.MapOptions,
     mapData: FeatureCollection,
     classes: number[],
-    dataLayer: Leaflet.FeatureGroup
+    dataLayer: Leaflet.Layer
 }
 
 export default {
@@ -60,30 +67,44 @@ export default {
     },
     data(): MapWidgetData {
         return {
-            id: `map_${Date.now()}`, //Generate unique map id
+            id: Date.now().toString(), //Generate unique map id
             map: {} as Leaflet.Map,
             mapOptions: {
                 zoomSnap: 0
             } as Leaflet.MapOptions,
             mapData: {} as FeatureCollection,
             classes: [] as number[],
-            dataLayer: {} as Leaflet.FeatureGroup
+            dataLayer: {} as Leaflet.Layer
         }
     },
     computed: {
+        mapId(): string {
+            return `map_${this.id}`;
+        },
+        legendId(): string {
+            return `legend_${this.id}`;
+        },
         numberOfClasses(): number {
             const url = new URL(this.colorScheme);
             const numberOfClasses = Number(url.searchParams.get("n"));
             return numberOfClasses;
         },
-        colorPalette(): string {
+        colorPalette(): string[] {
             const url = new URL(this.colorScheme);
             const scheme = url.searchParams.get("scheme");
             /* FIXME: Fix TypeScript */
-            return colorbrewer[scheme][this.numberOfClasses];
+            return colorbrewer[scheme][this.numberOfClasses].reverse();
         },
         mapDataValues(): number[] {
             return this.mapData.features.map(feature => feature?.properties && feature.properties[this.variableName]);
+        },
+        labels(): string[] {
+            const classes = this.classes;
+            let result = [] as string[];
+            for (let i = 0; i < classes.length - 1; i++) {
+                result[i] = `${classes[i]} - ${classes[i+1]}`
+            }
+            return result;
         }
     },
     mounted() {
@@ -91,30 +112,14 @@ export default {
     },
     methods: {
         async _initMap() {
-            this.map = await Leaflet.map(this.id, this.mapOptions);
+            this.map = await Leaflet.map(this.mapId, this.mapOptions);
             await this._addBasemap();
             this.mapData = await this._getData();
-            this.classes = await this._calculateClasses();
+            this.classes = this._roundValues(await this._calculateClasses());
             await this._addData();
-            const bounds = this.dataLayer.getBounds();
-            this.map.fitBounds(bounds);
-
-            /* FIXME: TypeScript */
-            this.dataLayer.eachLayer(layer  => {
-                layer.on({
-                    "mouseover": () => {
-                        layer.setStyle({
-                            color: "red",
-                            weight: 5
-                        });
-
-                        layer.bringToFront();
-                    },
-                    "mouseout": event => {
-                        this.dataLayer.resetStyle();
-                    },
-                });
-            });
+            const bounds = (this.dataLayer instanceof Leaflet.FeatureGroup) && await this.dataLayer.getBounds();
+            bounds && await this.map.fitBounds(bounds);
+            await this._addLegend();
         },
         _addBasemap() {
             //TODO: Configure basemaps via leaflet-providers (https://leaflet-extras.github.io/leaflet-providers/preview/index.html)
@@ -124,7 +129,7 @@ export default {
 
             this.map.addLayer(basemapLayer);
         },
-        async _getData() {
+        async _getData(): Promise<FeatureCollection> {
             //FIXME: Ensure input data follows GeoJSON spec
             const dataSource = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/src/${this.data}`;
             const data = await (await fetch(dataSource)).json();
@@ -150,23 +155,29 @@ export default {
                     break;
                 }
             }
-
+    
             return classes;
         },
-        _addData() {
-            const layerOptions: GeoJSONOptions = {
-                style: (feature): PathOptions => {
+        _roundValues(values: number[]) {
+            return values.map(value => Math.round(value * 100) / 100);
+        },
+        _addData(): void {
+            const layerOptions: Leaflet.GeoJSONOptions = {
+                style: (feature): Leaflet.PathOptions => {
                     return {
                         fillColor: this._getColor(feature?.properties[this.variableName], this.classes),
                         fillOpacity: 1,
                         color: "black",
                         weight: 0.5
                     }
+                },
+                onEachFeature: (feature: Feature, layer: Leaflet.GeoJSON) => {
+                    this._onEachFeature(feature, layer)
                 }
             }
 
             this.dataLayer = Leaflet.geoJSON(this.mapData, layerOptions);
-            this.map.addLayer(this.dataLayer);
+            this.dataLayer instanceof Leaflet.Layer && this.map.addLayer(this.dataLayer);
         },
         /* FIXME */
         _getColor(value: number, buckets: number[]): string {
@@ -174,13 +185,45 @@ export default {
 
             /* TODO: Generate color palette based in the number of classes and the provided color scheme */
             const colors = this.colorPalette;
+            let color = "";
 
             for (let index = numberOfClasses - 1; index >= 0; index--) {
                 /* Check if value is inside of interval [buckets[index], buckets[index+1]) */
                 if (value >= buckets[index]) {
-                    return colors[index];
+                    color = colors[index];
+                    break;
                 }
             }
+
+            return color;
+        },
+        _onEachFeature(feature: Feature, layer: Leaflet.GeoJSON): void {
+            layer.on({
+                "mouseover": () => this._highlightFeature(layer),
+                "mouseout": () => this._resetHighlight()
+            });
+        },
+        _highlightFeature(layer: Leaflet.GeoJSON): void {
+            layer.setStyle({
+                color: "red",
+                weight: 5
+            });
+
+            layer.bringToFront();
+        },
+        _resetHighlight(): void {
+            this.dataLayer instanceof Leaflet.GeoJSON && this.dataLayer.resetStyle();
+        },
+        _addLegend(): void {
+            const Legend = Leaflet.Control.extend({
+                onAdd: () => {
+                    return Leaflet.DomUtil.get(this.legendId);
+                }
+            });
+
+            new Legend({
+                position: "bottomleft"
+            }).addTo(this.map);
         }
     }
 }
