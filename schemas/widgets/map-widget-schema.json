@@ -13,8 +13,27 @@
             "type": "string"
         },
         "data": {
-            "type": "string",
-            "format": "uri-reference"
+            "type": "object",
+            "properties": {
+                "source": {
+                    "type": "string",
+                    "format": "uri-reference"
+                },
+                "attribution": {
+                    "type": "object",
+                    "properties": {
+                        "url": {
+                            "type": "string",
+                            "format": "uri-reference"
+                        },
+                        "label": {
+                            "type": "string"
+                        }
+                    },
+                    "required": ["url", "label"]
+                }
+            },
+            "required": ["source"]
         },
         "variable": {
             "type": "object",

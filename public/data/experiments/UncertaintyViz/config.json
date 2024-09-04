@@ -103,7 +103,13 @@
                     "type": "map",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
-                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "data": {
+                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "attribution": {
+                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
+                                "label": "Lake County Illinois GIS"
+                            }
+                        },
                         "variable": {
                             "id": "Obesity",
                             "unit": "%"
@@ -127,7 +133,13 @@
                     "type": "map",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, equal interval)",
-                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "data": {
+                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "attribution": {
+                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
+                                "label": "Lake County Illinois GIS"
+                            }
+                        },
                         "variable": {
                             "id": "Obesity",
                             "unit": "%"
@@ -140,7 +152,13 @@
                     "type": "map",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, jenks)",
-                        "data": "LakeCounty_Health_NationalObesityByState_2015.json",
+                        "data": {
+                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "attribution": {
+                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
+                                "label": "Lake County Illinois GIS"
+                            }
+                        },
                         "variable": {
                             "id": "Obesity",
                             "unit": "%"

@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import type { Variable, ClassificationMethod } from '@/types/widgets/MapWidget';
+import type { MapWidgetProps } from '@/types/widgets/MapWidget';
 import type { PropType } from 'vue';
 import type { Feature, FeatureCollection } from 'geojson';
 import type { VDataTable } from 'vuetify/components';
@@ -58,24 +58,24 @@ type MapWidgetData = {
 export default {
     props: {
         title: {
-            type: String,
+            type: String as PropType<MapWidgetProps["title"]>,
             required: false,
             default: ""
         },
         data: {
-            type: String,
+            type: Object as PropType<MapWidgetProps["data"]>,
             required: true
         },
         variable: {
-            type: Object as PropType<Variable>,
+            type: Object as PropType<MapWidgetProps["variable"]>,
             required: true
         },
         classificationMethod: {
-            type: Number as PropType<ClassificationMethod>,
+            type: Number as PropType<MapWidgetProps["classificationMethod"]>,
             required: true
         },
         colorScheme: {
-            type: String,
+            type: String as PropType<MapWidgetProps["colorScheme"]>,
             required: true
         }
     },
@@ -125,7 +125,7 @@ export default {
             const url = new URL(this.colorScheme);
             const scheme = url.searchParams.get("scheme");
             /* FIXME: Fix TypeScript */
-            return colorbrewer[scheme][this.numberOfClasses].reverse();
+            return colorbrewer[scheme][this.numberOfClasses];
         },
         mapDataValues(): number[] {
             return this.mapData.features.map(feature => feature?.properties && feature.properties[this.variable.id]);
@@ -153,6 +153,16 @@ export default {
         },
         legendTitle(): string {
             return (this.variable.label ? this.variable.label : this.variable.id) + ` (in ${this.variable.unit})`;
+        },
+        attributionLabel(): string {
+            const url = this.data?.attribution?.url;
+            const label = this.data?.attribution?.label;
+
+            if (!url || !label) {
+                return "";
+            }
+
+            return `&copy; <a href=${this.data.attribution.url}>${this.data.attribution.label}</a>`;
         }
     },
     mounted() {
@@ -180,7 +190,7 @@ export default {
         },
         async _getData(): Promise<FeatureCollection> {
             //FIXME: Ensure input data follows GeoJSON spec
-            const dataSource = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/src/${this.data}`;
+            const dataSource = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/src/${this.data.source}`;
             const data = await (await fetch(dataSource)).json();
             return data;
         },
@@ -222,7 +232,8 @@ export default {
                 },
                 onEachFeature: (feature: Feature, layer: Leaflet.GeoJSON) => {
                     this._onEachFeature(feature, layer)
-                }
+                },
+                attribution: this.attributionLabel
             }
 
             this.dataLayer = Leaflet.geoJSON(this.mapData, layerOptions);
