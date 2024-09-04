@@ -91,7 +91,7 @@
             ]
         },
         {
-            "title": "Map.",
+            "title": "First Map Prototype",
             "widgets": [
                 {
                     "type": "text",
@@ -106,13 +106,13 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=3"
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
                     }
                 }
             ]
         },
         {
-            "title": "A Comparison of two maps.",
+            "title": "Comparison of Two Map Prototypes",
             "widgets": [
                 {
                     "type": "text",
@@ -127,7 +127,7 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "equal interval",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
                     }
                 },
                 {
@@ -137,7 +137,7 @@
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
                         "variableName": "Obesity",
                         "classificationMethod": "jenks",
-                        "colorScheme": "https://colorbrewer2.org/?type=diverging&scheme=Spectral&n=5"
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
                     }
                 }
             ]

@@ -14,12 +14,24 @@
             </span>
         </div>
     </div>
+    <div :id="infoBoxId" class="info-box">
+        <v-data-table
+            :headers="headers"
+            :items="featurePropertyValues"
+            hide-default-footer
+            density="compact"
+            disable-sort
+            class="info-box-table"
+        >
+        </v-data-table>
+    </div>
 </template>
 
 <script lang="ts">
 import type { ClassificationMethod } from '@/types/widgets/MapWidget';
 import type { PropType } from 'vue';
 import type { Feature, FeatureCollection } from 'geojson';
+import type { VDataTable } from 'vuetify/components';
 
 import Leaflet from 'leaflet';
 import 'leaflet/dist/leaflet.css';
@@ -38,7 +50,9 @@ type MapWidgetData = {
     mapOptions: Leaflet.MapOptions,
     mapData: FeatureCollection,
     classes: number[],
-    dataLayer: Leaflet.Layer
+    dataLayer: Leaflet.Layer,
+    highlightedFeature: Feature,
+    headers: VDataTable['$props']['headers']
 }
 
 export default {
@@ -74,7 +88,22 @@ export default {
             } as Leaflet.MapOptions,
             mapData: {} as FeatureCollection,
             classes: [] as number[],
-            dataLayer: {} as Leaflet.Layer
+            dataLayer: {} as Leaflet.Layer,
+            highlightedFeature: {} as Feature,
+            headers: [
+                {
+                    title: "Property",
+                    value: "property",
+                    align: "start",
+                    width: "50%"
+                },
+                {
+                    title: "Value",
+                    value: "value",
+                    align: "start",
+                    width: "50%"
+                }
+            ]
         }
     },
     computed: {
@@ -83,6 +112,9 @@ export default {
         },
         legendId(): string {
             return `legend_${this.id}`;
+        },
+        infoBoxId(): string {
+            return `infoBox_${this.id}`;
         },
         numberOfClasses(): number {
             const url = new URL(this.colorScheme);
@@ -105,6 +137,19 @@ export default {
                 result[i] = `${classes[i]} - ${classes[i+1]}`
             }
             return result;
+        },
+        infoBox(): (HTMLElement | null) {
+            return document.getElementById(this.infoBoxId);
+        },
+        featurePropertyValues(): (VDataTable['$props']['items']) {
+            const properties = this.highlightedFeature?.properties;
+            const entries = properties && Object.entries(properties);
+            return entries?.map((property: any[]) => {
+                return new Object({
+                    property: property[0],
+                    value: property[1]
+                });
+            });
         }
     },
     mounted() {
@@ -120,6 +165,7 @@ export default {
             const bounds = (this.dataLayer instanceof Leaflet.FeatureGroup) && await this.dataLayer.getBounds();
             bounds && await this.map.fitBounds(bounds);
             await this._addLegend();
+            await this._addInfoBox();
         },
         _addBasemap() {
             //TODO: Configure basemaps via leaflet-providers (https://leaflet-extras.github.io/leaflet-providers/preview/index.html)
@@ -199,13 +245,19 @@ export default {
         },
         _onEachFeature(feature: Feature, layer: Leaflet.GeoJSON): void {
             layer.on({
-                "mouseover": () => this._highlightFeature(layer),
-                "mouseout": () => this._resetHighlight()
+                "mouseover": () => {
+                    this._highlightFeature(layer),
+                    this._updateFeatureInfo(feature)
+                },
+                "mouseout": () => {
+                    this._resetHighlight()
+                    this._resetFeatureInfo()
+                }
             });
         },
         _highlightFeature(layer: Leaflet.GeoJSON): void {
             layer.setStyle({
-                color: "red",
+                color: "cyan",
                 weight: 5
             });
 
@@ -214,6 +266,15 @@ export default {
         _resetHighlight(): void {
             this.dataLayer instanceof Leaflet.GeoJSON && this.dataLayer.resetStyle();
         },
+        _updateFeatureInfo(feature: Feature) {
+            this.highlightedFeature = feature;
+            if (this.infoBox) {
+                this.infoBox.setAttribute("style", "visibility: visible");
+            }
+        },
+        _resetFeatureInfo() {
+            this.infoBox && this.infoBox.setAttribute("style", "visibility: hidden");
+        },
         _addLegend(): void {
             const Legend = Leaflet.Control.extend({
                 onAdd: () => {
@@ -221,9 +282,24 @@ export default {
                 }
             });
 
-            new Legend({
+            const legend = new Legend({
                 position: "bottomleft"
-            }).addTo(this.map);
+            });
+
+            this.map.addControl(legend);
+        },
+        _addInfoBox(): void {
+            const InfoBox = Leaflet.Control.extend({
+                onAdd: () => {
+                    return Leaflet.DomUtil.get(this.infoBoxId);
+                }
+            });
+
+            const infoBox = new InfoBox({
+                position: "topright"
+            });
+
+            this.map.addControl(infoBox);
         }
     }
 }

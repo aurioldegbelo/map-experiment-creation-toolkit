@@ -78,6 +78,25 @@ body {
   padding: 10px;
 }
 
+.info-box {
+  background: white;
+  visibility: hidden;
+  padding: 10px;
+  width: 250px;
+}
+
+.info-box-table thead th {
+  font-weight: bold !important;
+}
+
+.info-box-table tbody td:first-child {
+  font-style: italic;
+}
+
+.info-box tr:first-child {
+  border-right: solid thin black;
+}
+
 .title {
   grid-area: top;
 }
