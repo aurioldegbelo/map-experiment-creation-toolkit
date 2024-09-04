@@ -1,3 +1,9 @@
+type Variable = {
+    id: string,
+    label?: string,
+    unit?: string
+}
+
 enum ClassificationMethod {
     "equal interval",
     "quantiles",
@@ -7,10 +13,10 @@ enum ClassificationMethod {
 type MapWidgetProperties = {
     title?: string,
     data: string,
-    variableName: string,
+    variable: Variable,
     numberOfClasses?: number,
     classificationMethod: ClassificationMethod,
     colorScheme: string
 };
 
-export { ClassificationMethod, MapWidgetProperties };
+export { Variable, ClassificationMethod, MapWidgetProperties };

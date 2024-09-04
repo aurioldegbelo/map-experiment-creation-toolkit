@@ -3,7 +3,7 @@
     <div :id="mapId" class="map"></div>
     <div :id="legendId" class="legend">
         <div class="title">
-            <h4>{{ variableName }}</h4>
+            <h4>{{ legendTitle }}</h4>
         </div>
         <div class="colors">
             <div v-for="color in colorPalette" class="legend-color" :style="{ backgroundColor: color }"></div>
@@ -28,7 +28,7 @@
 </template>
 
 <script lang="ts">
-import type { ClassificationMethod } from '@/types/widgets/MapWidget';
+import type { Variable, ClassificationMethod } from '@/types/widgets/MapWidget';
 import type { PropType } from 'vue';
 import type { Feature, FeatureCollection } from 'geojson';
 import type { VDataTable } from 'vuetify/components';
@@ -66,8 +66,8 @@ export default {
             type: String,
             required: true
         },
-        variableName: {
-            type: String,
+        variable: {
+            type: Object as PropType<Variable>,
             required: true
         },
         classificationMethod: {
@@ -128,7 +128,7 @@ export default {
             return colorbrewer[scheme][this.numberOfClasses].reverse();
         },
         mapDataValues(): number[] {
-            return this.mapData.features.map(feature => feature?.properties && feature.properties[this.variableName]);
+            return this.mapData.features.map(feature => feature?.properties && feature.properties[this.variable.id]);
         },
         labels(): string[] {
             const classes = this.classes;
@@ -150,6 +150,9 @@ export default {
                     value: property[1]
                 });
             });
+        },
+        legendTitle(): string {
+            return (this.variable.label ? this.variable.label : this.variable.id) + ` (in ${this.variable.unit})`;
         }
     },
     mounted() {
@@ -211,7 +214,7 @@ export default {
             const layerOptions: Leaflet.GeoJSONOptions = {
                 style: (feature): Leaflet.PathOptions => {
                     return {
-                        fillColor: this._getColor(feature?.properties[this.variableName], this.classes),
+                        fillColor: this._getColor(feature?.properties[this.variable.id], this.classes),
                         fillOpacity: 1,
                         color: "black",
                         weight: 0.5

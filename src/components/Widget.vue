@@ -14,7 +14,7 @@
         <MapWidget v-if="type === 'map'" 
             :title="properties.title" 
             :data="properties.data"
-            :variableName="properties.variableName" 
+            :variable="properties.variable" 
             :classificationMethod="properties.classificationMethod" 
             :colorScheme="properties.colorScheme"
         >

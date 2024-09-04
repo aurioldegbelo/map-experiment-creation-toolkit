@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../schemas/experiment-schema.json",
+    "$schema": "../../../../schemas/experiment-schema.json",
     "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
     "description": "This is an example experiment.",
     "authors": [
@@ -104,7 +104,10 @@
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
-                        "variableName": "Obesity",
+                        "variable": {
+                            "id": "Obesity",
+                            "unit": "%"
+                        },
                         "classificationMethod": "equal interval",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
                     }
@@ -125,7 +128,10 @@
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, equal interval)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
-                        "variableName": "Obesity",
+                        "variable": {
+                            "id": "Obesity",
+                            "unit": "%"
+                        },
                         "classificationMethod": "equal interval",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
                     }
@@ -135,7 +141,10 @@
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, jenks)",
                         "data": "LakeCounty_Health_NationalObesityByState_2015.json",
-                        "variableName": "Obesity",
+                        "variable": {
+                            "id": "Obesity",
+                            "unit": "%"
+                        },
                         "classificationMethod": "jenks",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
                     }
