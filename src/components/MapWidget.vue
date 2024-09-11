@@ -1,29 +1,31 @@
 <template>
-    <h4>{{ title }}</h4>
-    <div :id="mapId" class="map"></div>
-    <div :id="legendId" class="legend">
-        <div class="title">
-            <h4>{{ legendTitle }}</h4>
+    <div class="map-widget">
+        <h4>{{ title }}</h4>
+        <div :id="mapId" class="map"></div>
+        <div :id="legendId" class="legend">
+            <div class="title">
+                <h4>{{ legendTitle }}</h4>
+            </div>
+            <div class="colors">
+                <div v-for="color in colorPalette" class="legend-color" :style="{ backgroundColor: color }"></div>
+            </div>
+            <div class="labels">
+                <span v-for="label in labels">
+                    {{ label }}
+                </span>
+            </div>
         </div>
-        <div class="colors">
-            <div v-for="color in colorPalette" class="legend-color" :style="{ backgroundColor: color }"></div>
+        <div :id="infoBoxId" class="info-box">
+            <v-data-table
+                :headers="headers"
+                :items="featurePropertyValues"
+                hide-default-footer
+                density="compact"
+                disable-sort
+                class="info-box-table"
+            >
+            </v-data-table>
         </div>
-        <div class="labels">
-            <span v-for="label in labels">
-                {{ label }}
-            </span>
-        </div>
-    </div>
-    <div :id="infoBoxId" class="info-box">
-        <v-data-table
-            :headers="headers"
-            :items="featurePropertyValues"
-            hide-default-footer
-            density="compact"
-            disable-sort
-            class="info-box-table"
-        >
-        </v-data-table>
     </div>
 </template>
 

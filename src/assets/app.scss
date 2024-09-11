@@ -1,32 +1,9 @@
-/* color palette from <https://github.com/vuejs/theme> */
-/* :root {
-  --vt-c-white: #ffffff;
-  --vt-c-white-soft: #f8f8f8;
-  --vt-c-white-mute: #f2f2f2;
-
-  --vt-c-black: #181818;
-  --vt-c-black-soft: #222222;
-  --vt-c-black-mute: #282828;
-
-  --vt-c-indigo: #2c3e50;
-
-  --vt-c-divider-light-1: rgba(60, 60, 60, 0.29);
-  --vt-c-divider-light-2: rgba(60, 60, 60, 0.12);
-  --vt-c-divider-dark-1: rgba(84, 84, 84, 0.65);
-  --vt-c-divider-dark-2: rgba(84, 84, 84, 0.48);
-
-  --vt-c-text-light-1: var(--vt-c-indigo);
-  --vt-c-text-light-2: rgba(60, 60, 60, 0.66);
-  --vt-c-text-dark-1: var(--vt-c-white);
-  --vt-c-text-dark-2: rgba(235, 235, 235, 0.64);
-} */
-
-:root {
-  --padding: 2rem;
-}
+$background: #E8F9E8;
+$primary: #89be31;
+$spacing: 2rem;
+$spacing-small: 1rem;
 
 body {
-  color: black;
   line-height: 1.6;
   font-family:
     Inter,
@@ -48,15 +25,45 @@ body {
 }
 
 .v-application {
-  padding: 0 var(--padding);
+  padding: 0 $spacing;
 }
 
-.v-app-bar {
+header.v-app-bar.v-toolbar {
+  background-color: $background;
+  text-align: center;
+}
+
+main {
+  margin-bottom: 25px;
+}
+
+.step {
   text-align: center;
 }
 
 .widget {
-  padding-bottom: var(--padding);
+  display: flex;
+  justify-content: center;
+  text-align: left;
+  padding-bottom: $spacing;
+}
+
+.text-widget {
+  max-width: 700px;
+}
+
+.v-stepper .v-stepper-item--selected .v-avatar {
+  background: $primary !important;
+  color: black;
+}
+
+.v-stepper-header {
+  padding: $spacing-small;
+  justify-content: space-evenly !important;
+}
+
+.v-stepper-actions {
+  width: inherit;
 }
 
 .v-stepper-item {
@@ -64,8 +71,8 @@ body {
 }
 
 .map {
+  width: 700px;
   height: 50vh;
-  width: 50%;
 }
 
 .legend {
@@ -120,4 +127,8 @@ body {
   width: 20px;
   height: 20px;
   border: 1px solid black;
+}
+
+footer {
+  justify-content: space-between;
 }
