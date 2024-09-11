@@ -73,7 +73,7 @@ export default {
             required: true
         },
         classificationMethod: {
-            type: Number as PropType<MapWidgetProps["classificationMethod"]>,
+            type: String as PropType<MapWidgetProps["classificationMethod"]>,
             required: true
         },
         colorScheme: {

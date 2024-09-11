@@ -1,13 +1,8 @@
 {
     "$schema": "../../../../schemas/experiment-schema.json",
     "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
-    "description": "This is an example experiment.",
+    "description": "This is an automatically generated experiment. It contains data from a sample dataset for demonstration purposes.",
     "authors": [
-        {
-            "firstName": "Merel",
-            "lastName": "Vogel",
-            "email": "m.vogel@52north.de"
-        },
         {
             "firstName": "Max",
             "lastName": "Gadomski",

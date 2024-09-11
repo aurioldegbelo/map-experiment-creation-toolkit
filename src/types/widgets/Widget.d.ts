@@ -1,6 +1,7 @@
 import type { TextWidgetProperties } from "./TextWidget";
 import type { InputWidgetProperties } from "./InputWidget";
 import type { MapWidgetProperties } from "./MapWidget";
+import type { ConsentWidgetProperties } from "./ConsentWidget";
 
 enum WidgetType {
     text = "text",
@@ -9,7 +10,7 @@ enum WidgetType {
     consent = "consent"
 };
 
-type WidgetProperties = TextWidgetProperties | InputWidgetProperties | MapWidgetProperties;
+type WidgetProperties = TextWidgetProperties | InputWidgetProperties | MapWidgetProperties | ConsentWidgetProperties;
 
 type Widget = {
     type: WidgetType

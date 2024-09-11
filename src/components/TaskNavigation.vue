@@ -1,25 +1,36 @@
 <template>
-    <v-stepper v-model="selectedTask" alt-labels>
+    <v-stepper
+        v-model="selectedTask"
+        alt-labels
+    >
         <v-stepper-header>
             <template v-for="(task, index) in tasks">
-                <v-stepper-item :title="task.title" :value="index + 1"></v-stepper-item>
+                <v-stepper-item 
+                    editable
+                    edit-icon=""
+                    :title="task.title"
+                    :value="index + 1"
+                ></v-stepper-item>
             </template>
         </v-stepper-header>
         <v-stepper-window>
             <template v-for="(task, index) in tasks">
-                <v-stepper-window-item :value="index + 1">
+                <v-stepper-window-item 
+                    :value="index + 1"
+                >
                     <v-card 
                         class="step"
-                        :title="task.title">
+                        :title="task.title"
+                    >
                         <template v-for="widget in task.widgets">
-                                <Widget 
-                                    :type="widget.type"
-                                    :properties="widget.properties"
-                                    @value-changed="e => onValueChanged(e)"
-                                >
-                                </Widget>
+                            <Widget 
+                                :type="widget.type"
+                                :properties="widget.properties"
+                                @value-changed="e => onValueChanged(e)"
+                            ></Widget>
                         </template>
-                        <Widget v-if="index === 0"
+                        <Widget 
+                            v-if="index === 0"
                             type="consent"
                             :properties="{}"
                             @consent-checked="e => onConsentChecked(e)"
@@ -33,7 +44,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { Task } from '../types/Task';
+import type { Experiment } from '@/types/Experiment';
 
 import Widget from './Widget.vue';
 
@@ -48,11 +59,20 @@ export default {
     props: {
         value: {
             type: Number,
-            default: 1
+            required: true
+        },
+        description: {
+            type: String as PropType<Experiment["description"]>,
+            required: false, // TODO: Infer from type
+            default: ""
+        },
+        authors: {
+            type: Array as PropType<Experiment["authors"]>,
+            required: true
         },
         tasks: {
-            type: Array as PropType<Task[]>,
-            default: () => []
+            type: Array as PropType<Experiment["tasks"]>,
+            required: true
         }
     },
     data(): TaskNavigationData {
@@ -62,7 +82,7 @@ export default {
     },
     computed: {
         selectedTask: {
-            get() {
+            get(): number {
                 return this.value;
             },
             set(value: number) {

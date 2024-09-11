@@ -15,9 +15,9 @@ type Variable = {
 };
 
 enum ClassificationMethod {
-    "equal interval",
-    "quantiles",
-    "jenks"
+    equal = "equal interval",
+    quantiles = "quantiles",
+    jenks = "jenks"
 };
 
 type MapWidgetProps = {

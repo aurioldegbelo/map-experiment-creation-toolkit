@@ -6,11 +6,13 @@
         ></v-app-bar>
         <v-main>
             <v-container>
-                <TaskNavigation 
-                v-model="step" 
-                :tasks="tasks"
-                @values-changed="e => updateData(e)"
-                @consent-checked="e => onConsentChecked(e)"
+                <TaskNavigation
+                    :value="step"
+                    :description="description"
+                    :authors="authors"
+                    :tasks="tasks"
+                    @values-changed="e => updateData(e)"
+                    @consent-checked="e => onConsentChecked(e)"
                 ></TaskNavigation>
             </v-container>
         </v-main>
@@ -38,8 +40,9 @@
 </template>
 
 <script lang="ts">
-import type { Experiment } from '../types/Experiment';
-import type { Task } from '../types/Task';
+import type { Experiment } from '@/types/Experiment';
+import type { Author } from '@/types/Author';
+import type { Task } from '@/types/Task';
 
 import TaskNavigation from './TaskNavigation.vue';
 
@@ -68,8 +71,14 @@ export default {
         }
     },
     computed: {
-        title(): string {
+        title(): Experiment["title"] {
             return this.experiment?.title;
+        },
+        description(): Experiment["description"] {
+            return this.experiment?.description;
+        },
+        authors(): Author[] {
+            return this.experiment?.authors;
         },
         tasks(): Task[] {
             return this.experiment?.tasks;
