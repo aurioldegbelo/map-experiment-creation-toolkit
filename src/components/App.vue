@@ -10,6 +10,7 @@
                 v-model="step" 
                 :tasks="tasks"
                 @values-changed="e => updateData(e)"
+                @consent-checked="e => onConsentChecked(e)"
                 ></TaskNavigation>
             </v-container>
         </v-main>
@@ -20,12 +21,15 @@
                 variant="outlined"
                 color="primary"
                 @click="onPreviousButton()"
+                :disabled="!consent || step === 1"
+
             >
                 Previous
             </v-btn>
             <v-btn
                 color="primary"
                 @click="onNextButton()"
+                :disabled="!consent"
             >
                 {{ step >= tasks.length ? "Submit" : "Next" }}
             </v-btn>
@@ -42,7 +46,8 @@ import TaskNavigation from './TaskNavigation.vue';
 type AppData = {
     experiment: Experiment,
     step: number,
-    data: Array<object>
+    data: Array<object>,
+    consent: boolean
 }
 
 export default {
@@ -58,7 +63,8 @@ export default {
                 tasks: []
             },
             step: 1,
-            data: []
+            data: [],
+            consent: false
         }
     },
     computed: {
@@ -98,9 +104,13 @@ export default {
             this.step++;
         },
         _submit() {
-            const jsonString = JSON.stringify(this.data);
+            const log = JSON.stringify({
+                experiment: import.meta.env.VITE_EXPERIMENT_ID,
+                timestamp: new Date().toLocaleString(),
+                answers: this.data
+            });
 
-            const blob = new Blob([jsonString], {
+            const blob = new Blob([log], {
                 type: 'application/json'
             });
 
@@ -114,6 +124,9 @@ export default {
         },
         updateData(values) {
             this.data = values;
+        },
+        onConsentChecked(value) {
+            this.consent = value;
         }
     }
 };

@@ -10,6 +10,7 @@
         variant="outlined"
     ></v-text-field>
     <v-textarea v-else
+        v-model="enteredValue"
         clearable
         color="primary"
         :counter="length"

@@ -20,6 +20,11 @@
             :colorScheme="properties.colorScheme"
         >
         </MapWidget>
+        <ConsentWidget v-if="type === 'consent'"
+            v-model="checked"
+            @checked="e => onConsentChecked(e)"
+        >
+        </ConsentWidget>
     </div>
 </template>
 
@@ -32,12 +37,18 @@ import { WidgetType } from '../types/widgets/Widget';
 import TextWidget from './TextWidget.vue';
 import InputWidget from './InputWidget.vue';
 import MapWidget from './MapWidget.vue';
+import ConsentWidget from './ConsentWidget.vue';
+
+type WidgetData = {
+    checked: boolean
+}
 
 export default {
     components: {
         TextWidget,
         InputWidget,
-        MapWidget
+        MapWidget,
+        ConsentWidget
     },
     props: {
         type: {
@@ -49,14 +60,22 @@ export default {
             required: true
         }
     },
+    data(): WidgetData {
+        return {
+            checked: false
+        }
+    },
     methods: {
         onValueChange(value) {
             const obj = {
-                id: this.properties.question,
-                value: value
+                question: this.properties.question,
+                answer: value
             };
 
             this.$emit('value-changed', obj);
+        },
+        onConsentChecked(value) {
+            this.$emit('consent-checked', value);
         }
     }
 }

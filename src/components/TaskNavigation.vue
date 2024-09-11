@@ -19,6 +19,11 @@
                                 >
                                 </Widget>
                         </template>
+                        <Widget v-if="index === 0"
+                            type="consent"
+                            :properties="{}"
+                            @consent-checked="e => onConsentChecked(e)"
+                        ></Widget>
                     </v-card>
                 </v-stepper-window-item>
             </template>
@@ -68,21 +73,24 @@ export default {
     methods: {
         onValueChanged(value) {
             const valueExists = this.values.some(x => {
-                return x.id === value.id
+                return x.question === value.question
             });
 
             if (valueExists) {
-                const index = this.values.findIndex(x => x.id === value.id);
-                const newValue = value.value;
+                const index = this.values.findIndex(x => x.question === value.question);
+                const newValue = value.answer;
 
                 if (index > -1) {
-                    this.values[index].value = newValue;
+                    this.values[index].answer = newValue;
                 }
             } else {
                 this.values.push(value);
             }
 
             this.$emit('values-changed', this.values);
+        },
+        onConsentChecked(value) {
+            this.$emit('consent-checked', value);
         }
     }
 }

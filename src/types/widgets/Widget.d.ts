@@ -5,7 +5,8 @@ import type { MapWidgetProperties } from "./MapWidget";
 enum WidgetType {
     text = "text",
     input = "input",
-    map = "map"
+    map = "map",
+    consent = "consent"
 };
 
 type WidgetProperties = TextWidgetProperties | InputWidgetProperties | MapWidgetProperties;
