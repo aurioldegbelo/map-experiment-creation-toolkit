@@ -59,6 +59,17 @@
                 {
                     "type": "input",
                     "properties": {
+                        "question": "How old are you?",
+                        "type": "text",
+                        "properties": {
+                            "singleLine": true,
+                            "length": 2
+                        }
+                    }
+                },
+                {
+                    "type": "input",
+                    "properties": {
                         "question": "How often do you use digital maps?",
                         "type": "likert",
                         "properties": {
@@ -165,6 +176,22 @@
                         },
                         "classificationMethod": "jenks",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Feedback",
+            "widgets": [
+                {
+                    "type": "input",
+                    "properties": {
+                        "question": "Do you have any feedback?",
+                        "type": "text",
+                        "properties": {
+                            "singleLine": false,
+                            "length": 100
+                        }
                     }
                 }
             ]
