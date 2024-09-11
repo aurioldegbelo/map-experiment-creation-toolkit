@@ -13,6 +13,7 @@
   "dependencies": {
     "@mdi/font": "^7.4.47",
     "colorbrewer": "^1.5.6",
+    "dompurify": "^3.1.6",
     "geobuckets": "^0.0.3",
     "leaflet": "^1.9.4",
     "sass": "^1.78.0",
@@ -24,6 +25,7 @@
   "devDependencies": {
     "@tsconfig/node20": "^20.1.2",
     "@types/colorbrewer": "^1.0.32",
+    "@types/dompurify": "^3.0.5",
     "@types/geojson": "^7946.0.14",
     "@types/leaflet": "^1.9.12",
     "@types/node": "^20.11.28",

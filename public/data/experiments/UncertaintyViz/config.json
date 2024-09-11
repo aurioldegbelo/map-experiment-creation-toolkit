@@ -48,7 +48,7 @@
                     "type": "text",
                     "properties": {
                         "heading": "Contact",
-                        "text": "If you have any questions about the questionnaire or concerns about the privacy of your data, please contact me (Merel) at the following email address: m.vogel@52north.org."
+                        "text": "If you have any questions about the questionnaire or concerns about the privacy of your data, please contact me (Merel) at the following email address: <a href='mailto:m.vogel@52north.org'>m.vogel@52north.org</a>."
                     }
                 }
             ]
