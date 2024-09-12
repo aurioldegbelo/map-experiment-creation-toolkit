@@ -3,9 +3,9 @@
         v-model="selectedValue"
         color="#89be31"
     >
-        <v-radio v-for="(option, index) in options" 
+        <v-radio v-for="option in options" 
             :label="option" 
-            :value="index"
+            :value="option"
         ></v-radio>
     </v-radio-group>
 </template>
@@ -19,17 +19,17 @@ export default {
             type: Array as PropType<String[]>
         },
         value: {
-            type: Number,
-            default: -1
+            type: String,
+            default: ''
         }
     },
     computed: {
         selectedValue: {
-            get(): number {
+            get(): string {
                 return this.value;
             },
-            set(value: number): void {
-                this.$emit('value-changed', value + 1);
+            set(value: string): void {
+                this.$emit('value-changed', value);
             }
         }
     }
