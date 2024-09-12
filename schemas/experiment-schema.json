@@ -25,6 +25,9 @@
             },
             "minItems": 1
         },
+        "measureTaskCompletionTime": {
+            "type": "boolean"
+        },
         "tasks": {
             "type": "array",
             "items": {

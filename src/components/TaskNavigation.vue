@@ -6,7 +6,7 @@
         <v-stepper-header>
             <template v-for="(task, index) in tasks">
                 <v-stepper-item 
-                    editable
+                    :editable="!measureTaskCompletionTime"
                     edit-icon=""
                     :title="task.title"
                     :value="index + 1"
@@ -69,6 +69,11 @@ export default {
         authors: {
             type: Array as PropType<Experiment["authors"]>,
             required: true
+        },
+        measureTaskCompletionTime: {
+            type: Boolean as PropType<Experiment["measureTaskCompletionTime"]>,
+            required: false,
+            default: false
         },
         tasks: {
             type: Array as PropType<Experiment["tasks"]>,

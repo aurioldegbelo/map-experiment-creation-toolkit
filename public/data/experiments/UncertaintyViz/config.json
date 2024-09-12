@@ -9,6 +9,7 @@
             "email": "max.gadomski@uni-muenster.de"
         }
     ],
+    "measureTaskCompletionTime": true,
     "tasks": [
         {
             "title": "Introduction",
