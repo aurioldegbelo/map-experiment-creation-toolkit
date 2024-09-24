@@ -30,14 +30,14 @@
         "then": {
             "properties": {
                 "properties": {
-                    "$ref": "./inputs/text-input-widget.schema.json"
+                    "$ref": "./input-widgets/text-input-widget.schema.json"
                 }
             }
         },
         "else": {
             "properties": {
                 "properties": {
-                    "$ref": "./inputs/likert-input-widget.schema.json"
+                    "$ref": "./input-widgets/likert-input-widget.schema.json"
                 }
             }
         }
