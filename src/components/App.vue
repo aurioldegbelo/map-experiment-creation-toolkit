@@ -29,6 +29,15 @@
                 Previous
             </v-btn>
             <v-btn
+                v-if="enableRestart"
+                variant="outlined"
+                color="secondary"
+                @click="onRestartButton()"
+                :disabled="step === 1"
+            >
+                Restart
+            </v-btn>
+            <v-btn
                 color="primary"
                 @click="onNextButton()"
                 :disabled="!consent"
@@ -66,6 +75,7 @@ export default {
                 description: "",
                 authors: [],
                 measureTaskCompletionTime: false,
+                enableRestart: false,
                 tasks: []
             },
             step: 1,
@@ -86,6 +96,9 @@ export default {
         },
         measureTaskCompletionTime(): Experiment["measureTaskCompletionTime"] {
             return this.experiment?.measureTaskCompletionTime;
+        },
+        enableRestart(): Experiment["enableRestart"] {
+            return this.experiment?.enableRestart;
         },
         tasks(): Task[] {
             return this.experiment?.tasks;
@@ -112,6 +125,13 @@ export default {
         },
         onPreviousButton() {
             this._previousStep();
+        },
+        onRestartButton() {
+            if (this.step <= 1) {
+                return;
+            }
+
+            this.step = 1;
         },
         onNextButton() {
             if (this.measureTaskCompletionTime) {

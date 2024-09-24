@@ -28,6 +28,9 @@
         "measureTaskCompletionTime": {
             "type": "boolean"
         },
+        "enableRestart": {
+            "type": "boolean"
+        },
         "tasks": {
             "type": "array",
             "items": {

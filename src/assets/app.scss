@@ -60,6 +60,7 @@ main {
 .v-stepper-header {
   padding: $spacing-small;
   justify-content: space-evenly !important;
+  overflow: hidden !important;
 }
 
 .v-stepper-actions {

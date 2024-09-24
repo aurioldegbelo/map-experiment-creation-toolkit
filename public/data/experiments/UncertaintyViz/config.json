@@ -10,6 +10,7 @@
         }
     ],
     "measureTaskCompletionTime": true,
+    "enableRestart": true,
     "tasks": [
         {
             "title": "Introduction",

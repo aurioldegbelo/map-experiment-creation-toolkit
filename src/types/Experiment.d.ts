@@ -6,6 +6,7 @@ type Experiment = {
     description?: string,
     authors: Author[],
     measureTaskCompletionTime?: boolean,
+    enableRestart?: boolean,
     tasks: Task[]
 };
 
