@@ -24,7 +24,7 @@
                     "properties": {
                         "url": {
                             "type": "string",
-                            "format": "uri-reference"
+                            "format": "uri"
                         },
                         "label": {
                             "type": "string"
