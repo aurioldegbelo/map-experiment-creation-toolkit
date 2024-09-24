@@ -14,7 +14,7 @@
         "widgets": {
             "type": "array",
             "items": {
-                "$ref": "./widget-schema.json"
+                "$ref": "./widget.schema.json"
             },
             "minItems": 1
         }

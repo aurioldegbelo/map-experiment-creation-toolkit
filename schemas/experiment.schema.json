@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "type": "object",
     "required": [
         "title",
@@ -21,7 +21,7 @@
         "authors": {
             "type": "array",
             "items": {
-                "$ref": "./author-schema.json"
+                "$ref": "./author.schema.json"
             },
             "minItems": 1
         },
@@ -34,7 +34,7 @@
         "tasks": {
             "type": "array",
             "items": {
-                "$ref": "./task-schema.json"
+                "$ref": "./task.schema.json"
             },
             "minItems": 1
         }

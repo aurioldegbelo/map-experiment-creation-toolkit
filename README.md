@@ -8,9 +8,9 @@ This toolkit aims for automating the creation on online experiments for evaluati
 
 | Property | Type | Requirement | Default | Description |
 | --- | --- | --- | --- | --- |
-| **title** | string | mandatory | - | The title of the experiment. |
-| description | string | optional | `""` | The description of the experiment. This only serves as metadata to identify an experiment and is completely optional. |
-| **authors** | [Author](#author)[] | mandatory | - | A list of the experiment authors. Define atleast one author. Refer to the [Author](#author) section to learn how to define an Author.  |
+| **title** | string | mandatory | - | The title of the experiment. It is always visible at the top of the page. |
+| description | string | optional | `""` | The description of the experiment. This only serves as metadata to identify an experiment (optional). |
+| **authors** | [Author](#author)[] | mandatory | - | A list of experiment authors. Define atleast one author. Refer to the [Author](#author) section for details.  |
 | measureTaskCompletionTime | boolean | optional | `false` | Set this to `true` to enable the automatic measurement of the time a participant takes to perform each task. 
 | enableRestart | boolean | optional | `true` | By default a button in the task navigation bar is shown to completely restart the experiment. Set this to `false` to prevent participants from restarting an experiment.
 | **tasks** | [Task](#task)[] | mandatory | - | A list of all tasks included in this experiment. Define atleast one task. |
