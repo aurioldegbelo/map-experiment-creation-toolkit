@@ -52,14 +52,14 @@
 import type { Experiment } from '@/types/Experiment';
 import type { Author } from '@/types/Author';
 import type { Task } from '@/types/Task';
-import type { ExperimentLog } from '@/types/Log';
+import type { Log } from '@/types/Log';
 
 import TaskNavigation from './TaskNavigation.vue';
 
 type AppData = {
     experiment: Experiment,
     step: number,
-    answers: ExperimentLog["answers"],
+    answers: Log["answers"],
     consent: boolean,
     timestamps: number[]
 }
@@ -103,7 +103,7 @@ export default {
         tasks(): Task[] {
             return this.experiment?.tasks;
         },
-        timeMeasurements(): ExperimentLog["taskCompletionTimes"] {
+        timeMeasurements(): Log["taskCompletionTimes"] {
             return this.timestamps.map((timestamp, index) => {
                 const difference = index < 1 ? 0 : (timestamp - this.timestamps[index - 1]);
                 const measurement = new Date(difference).toLocaleTimeString([], { minute: "2-digit", second: "2-digit" });
@@ -160,7 +160,7 @@ export default {
             this._downloadLogFile(logFile);
         },
         _generateLogFile(): Blob {
-            const log: ExperimentLog = {
+            const log: Log = {
                 experimentId: import.meta.env.VITE_EXPERIMENT_ID,
                 timestamp: new Date().toLocaleString(),
                 answers: this.answers
@@ -181,7 +181,7 @@ export default {
             link.setAttribute('download', 'log.json');
             link.click();
         },
-        updateData(values: Answer[]) {
+        updateData(values: Log["answers"]) {
             this.answers = values;
         },
         onConsentChecked(value: boolean) {

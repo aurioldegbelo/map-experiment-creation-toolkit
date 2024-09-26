@@ -30,7 +30,7 @@
 </template>
 
 <script lang="ts">
-import type { MapWidgetProps } from '@/types/widgets/MapWidget';
+import type { MapWidget } from '@/types/widgets/MapWidget';
 import type { PropType } from 'vue';
 import type { Feature, FeatureCollection } from 'geojson';
 import type { VDataTable } from 'vuetify/components';
@@ -60,24 +60,20 @@ type MapWidgetData = {
 export default {
     props: {
         title: {
-            type: String as PropType<MapWidgetProps["title"]>,
+            type: String as PropType<MapWidget["title"]>,
             required: false,
             default: ""
         },
         data: {
-            type: Object as PropType<MapWidgetProps["data"]>,
-            required: true
-        },
-        variable: {
-            type: Object as PropType<MapWidgetProps["variable"]>,
+            type: Object as PropType<MapWidget["data"]>,
             required: true
         },
         classificationMethod: {
-            type: String as PropType<MapWidgetProps["classificationMethod"]>,
+            type: String as PropType<MapWidget["classificationMethod"]>,
             required: true
         },
         colorScheme: {
-            type: String as PropType<MapWidgetProps["colorScheme"]>,
+            type: String as PropType<MapWidget["colorScheme"]>,
             required: true
         }
     },
@@ -154,7 +150,7 @@ export default {
             });
         },
         legendTitle(): string {
-            return (this.variable.label ? this.variable.label : this.variable.id) + ` (in ${this.variable.unit})`;
+            return (this.data.variable.label ? this.data.variable.label : this.data.variable.id) + ` (in ${this.data.variable.unit})`;
         },
         attributionLabel(): string {
             const url = this.data?.attribution?.url;
@@ -164,7 +160,7 @@ export default {
                 return "";
             }
 
-            return `&copy; <a href=${this.data.attribution.url}>${this.data.attribution.label}</a>`;
+            return `&copy; <a href=${url}>${label}</a>`;
         }
     },
     mounted() {
@@ -226,7 +222,7 @@ export default {
             const layerOptions: Leaflet.GeoJSONOptions = {
                 style: (feature): Leaflet.PathOptions => {
                     return {
-                        fillColor: this._getColor(feature?.properties[this.variable.id], this.classes),
+                        fillColor: this._getColor(feature?.properties[this.data.variable.id], this.classes),
                         fillOpacity: 1,
                         color: "black",
                         weight: 0.5

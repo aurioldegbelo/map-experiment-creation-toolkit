@@ -4,17 +4,17 @@
             {{ question }}
         </h4>
         <TextInputWidget 
-            v-if="type === 'text'"
+            v-if="isTextInputWidget"
             v-model="enteredValue"
             :singleLine="properties.singleLine" 
-            :length="properties.length"
+            :maxLength="properties.maxLength"
             @value-changed="(value: string) => onTextInputChange(value)"
         >
         </TextInputWidget>
         <LikertInputWidget 
-            v-if="type === 'likert'"
+            v-if="isLikertInputWidget"
             v-model="selectedOption"
-            :options="properties.options"
+            :items="properties.items"
             @value-changed="(value: number) => onLikertInputChange(value)"
         >
         </LikertInputWidget>
@@ -23,7 +23,7 @@
 
 <script lang="ts">
 import type { PropType } from 'vue';
-import type { InputWidgetPropertiesProperties, InputWidgetType } from '@/types/widgets/InputWidget';
+import type { InputWidget } from '@/types/widgets/InputWidget';
 
 import TextInputWidget from './TextInputWidget.vue';
 import LikertInputWidget from './LikertInputWidget.vue';
@@ -39,16 +39,16 @@ export default {
         LikertInputWidget
     },
     props: {
-        question: {
-            type: String,
+        type: {
+            type: String as PropType<InputWidget["type"]>,
             required: true
         },
-        type: {
-            type: String as PropType<InputWidgetType>,
+        question: {
+            type: String as PropType<InputWidget["question"]>,
             required: true
         },
         properties: {
-            type: Object as PropType<InputWidgetPropertiesProperties>,
+            type: Object as PropType<InputWidget["properties"]>,
             required: true
         }
     },
@@ -56,6 +56,14 @@ export default {
         return {
             selectedOption: -1,
             enteredValue: ''
+        }
+    },
+    computed: {
+        isTextInputWidget(): boolean {
+            return this.type === 'TEXT';
+        },
+        isLikertInputWidget(): boolean {
+            return this.type === 'LIKERT';
         }
     },
     methods: {

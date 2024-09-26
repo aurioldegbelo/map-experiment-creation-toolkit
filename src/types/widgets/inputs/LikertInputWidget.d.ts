@@ -1,5 +1,5 @@
-type LikertInputWidgetProperties = {
-    options: string[]
+type LikertInputWidget = {
+    items: string[]
 };
 
-export { LikertInputWidgetProperties };
+export { LikertInputWidget };

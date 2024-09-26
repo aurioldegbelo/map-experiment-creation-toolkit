@@ -1,7 +1,7 @@
 import type { Widget } from "./widgets/Widget";
 
 type Task = {
-    title: string,
+    title?: string,
     widgets: Widget[]
 };
 

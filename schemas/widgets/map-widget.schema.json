@@ -1,70 +1,32 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "type": "object",
     "required": [
         "data",
-        "variable",
         "classificationMethod",
         "colorScheme"
     ],
     "additionalProperties": false,
     "properties": {
         "title": {
-            "type": "string"
+            "type": "string",
+            "minLength": 1
         },
         "data": {
-            "type": "object",
-            "properties": {
-                "source": {
-                    "type": "string",
-                    "format": "uri-reference"
-                },
-                "attribution": {
-                    "type": "object",
-                    "properties": {
-                        "url": {
-                            "type": "string",
-                            "format": "uri"
-                        },
-                        "label": {
-                            "type": "string"
-                        }
-                    },
-                    "required": ["url", "label"]
-                }
-            },
-            "required": ["source"]
-        },
-        "variable": {
-            "type": "object",
-            "properties": {
-                "id": {
-                    "type": "string"
-                },
-                "label": {
-                    "type": "string"
-                },
-                "unit": {
-                    "type": "string"
-                }
-            },
-            "required": [
-                "id"
-            ]
-        },
-        "numberOfClasses": {
-            "type": "integer"
+            "$ref": "./map-data/map-data.schema.json"
         },
         "classificationMethod": {
             "type": "string",
             "enum": [
-                "equal interval",
-                "quantiles",
-                "jenks"
+                "EQUAL_INTERVAL",
+                "JENKS",
+                "QUANTILES"
             ]
         },
         "colorScheme": {
-            "type": "string"
+            "type": "string",
+            "format": "uri",
+            "pattern": "^https:\\/\\/(www\\.)?colorbrewer2\\.org\\/\\?type=(sequential|diverging|qualitative)(&scheme=[^\\s&]+)(&n=(3|4|5|6|7|8|9|10|11|12))$"
         }
     }
 }

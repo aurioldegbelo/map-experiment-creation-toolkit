@@ -5,7 +5,8 @@ type Attribution = {
 
 type Data = {
     source: string,
-    attribution: Attribution
+    variable: Variable,
+    attribution?: Attribution
 };
 
 type Variable = {
@@ -14,19 +15,13 @@ type Variable = {
     unit?: string
 };
 
-enum ClassificationMethod {
-    equal = "equal interval",
-    quantiles = "quantiles",
-    jenks = "jenks"
-};
+type ClassificationMethod = "EQUAL_INTERVAL" | "JENKS" | "QUANTILES";
 
-type MapWidgetProps = {
+type MapWidget = {
     title?: string,
     data: Data,
-    variable: Variable,
-    numberOfClasses?: number,
     classificationMethod: ClassificationMethod,
     colorScheme: string
 };
 
-export { MapWidgetProps };
+export { MapWidget };

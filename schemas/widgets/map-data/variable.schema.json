@@ -2,28 +2,21 @@
     "$schema": "https://json-schema.org/draft-07/schema",
     "type": "object",
     "required": [
-        "firstName",
-        "lastName",
-        "email"
+        "id"
     ],
     "additionalProperties": false,
     "properties": {
-        "title": {
-            "type": "string",
-            "pattern": "^.+\\.$",
-            "minLength": 1
-        },
-        "firstName": {
+        "id": {
             "type": "string",
             "minLength": 1
         },
-        "lastName": {
+        "label": {
             "type": "string",
             "minLength": 1
         },
-        "email": {
+        "unit": {
             "type": "string",
-            "format": "email"
+            "minLength": 1
         }
     }
 }

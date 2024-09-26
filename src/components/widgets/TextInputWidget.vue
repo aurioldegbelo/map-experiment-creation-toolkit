@@ -5,7 +5,7 @@
         clearable
         color="primary"
         density="compact"
-        :maxLength="length"
+        :maxLength="maxLength"
         :rules="rules"
         variant="outlined"
     ></v-text-field>
@@ -13,9 +13,9 @@
         v-model="enteredValue"
         clearable
         color="primary"
-        :counter="length"
+        :counter="maxLength"
         density="compact"
-        :maxLength="length"
+        :maxLength="maxLength"
         variant="outlined"
     >
     </v-textarea>
@@ -34,7 +34,7 @@ export default {
             type: Boolean,
             required: true
         },
-        length: {
+        maxLength: {
             type: Number,
             required: false
         },

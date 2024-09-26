@@ -16,33 +16,33 @@
             "title": "Introduction",
             "widgets": [
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "text": "This questionnaire is part of my master's thesis for the programme Geoinformatics and Spatial Data Science at the University of Münster (DE). It was written in collaboration with 52° North GmbH and is a contribution to the I-CISK project."
                     }
                 },
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "text": "The goal of this questionnaire is to find out which type of map is the most suitable for understanding the uncertainty inherent to these forecasts. We highly value your input in shaping effective climate communication!"
                     }
                 },
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "heading": "Privacy and data protection statement",
                         "text": "The data collected in this questionnaire will include your responses to the questions presented. The information collected is intended solely for the purpose of research and analysis. It will not be used for any commercial, marketing, or promotional activities. We will not collect or store any personally identifiable information (PII) such as names, email addresses, or other identifying details. Your responses will remain anonymous."
                     }
                 },
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "heading": "Consent",
                         "text": "Participation in this questionnaire is entirely voluntary. You are not required to provide any information if you do not wish to do so. By proceeding with this questionnaire, you consent to the collection and use of your responses as described in the privacy statement."
                     }
                 },
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "heading": "Contact",
                         "text": "If you have any questions about the questionnaire or concerns about the privacy of your data, please contact me (Merel) at the following email address: <a href='mailto:m.vogel@52north.org'>m.vogel@52north.org</a>."
@@ -54,23 +54,24 @@
             "title": "Introductory Questions",
             "widgets": [
                 {
-                    "type": "input",
+                    "type": "INPUT",
                     "properties": {
                         "question": "How old are you?",
-                        "type": "text",
+                        "type": "TEXT",
                         "properties": {
                             "singleLine": true,
-                            "length": 2
+                            "maxLength": 2,
+                            "type": "number"
                         }
                     }
                 },
                 {
-                    "type": "input",
+                    "type": "INPUT",
                     "properties": {
                         "question": "How often do you use digital maps?",
-                        "type": "likert",
+                        "type": "LIKERT",
                         "properties": {
-                            "options": [
+                            "items": [
                                 "Never",
                                 "Once a month or less",
                                 "Several times a month",
@@ -81,12 +82,12 @@
                     }
                 },
                 {
-                    "type": "input",
+                    "type": "INPUT",
                     "properties": {
                         "question": "Have you heard of or seen uncertainty information in climate forecasts before this survey?",
-                        "type": "likert",
+                        "type": "LIKERT",
                         "properties": {
-                            "options": [
+                            "items": [
                                 "I have never heard of it.",
                                 "I have heard of uncertainty information, but not seen it in forecasts",
                                 "I have heard of it, but do not understand it",
@@ -102,27 +103,27 @@
             "title": "First Map Prototype",
             "widgets": [
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "text": "Please use the map below to answer the following questions."
                     }
                 },
                 {
-                    "type": "map",
+                    "type": "MAP",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
                         "data": {
                             "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "variable": {
+                                "id": "Obesity",
+                                "unit": "%"
+                            },
                             "attribution": {
                                 "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
                                 "label": "Lake County Illinois GIS"
                             }
                         },
-                        "variable": {
-                            "id": "Obesity",
-                            "unit": "%"
-                        },
-                        "classificationMethod": "equal interval",
+                        "classificationMethod": "EQUAL_INTERVAL",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
                     }
                 }
@@ -132,47 +133,47 @@
             "title": "Comparison of Two Map Prototypes",
             "widgets": [
                 {
-                    "type": "text",
+                    "type": "TEXT",
                     "properties": {
                         "text": "Please use the two maps below to answer the following questions."
                     }
                 },
                 {
-                    "type": "map",
+                    "type": "MAP",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, equal interval)",
                         "data": {
                             "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "variable": {
+                                "id": "Obesity",
+                                "unit": "%"
+                            },
                             "attribution": {
                                 "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
                                 "label": "Lake County Illinois GIS"
                             }
                         },
-                        "variable": {
-                            "id": "Obesity",
-                            "unit": "%"
-                        },
-                        "classificationMethod": "equal interval",
+                        "classificationMethod": "EQUAL_INTERVAL",
                         "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
                     }
                 },
                 {
-                    "type": "map",
+                    "type": "MAP",
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (5 classes, jenks)",
                         "data": {
                             "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "variable": {
+                                "id": "Obesity",
+                                "unit": "%"
+                            },
                             "attribution": {
                                 "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
                                 "label": "Lake County Illinois GIS"
                             }
                         },
-                        "variable": {
-                            "id": "Obesity",
-                            "unit": "%"
-                        },
-                        "classificationMethod": "jenks",
-                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
+                        "classificationMethod": "JENKS",
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
                     }
                 }
             ]
@@ -181,13 +182,13 @@
             "title": "Feedback",
             "widgets": [
                 {
-                    "type": "input",
+                    "type": "INPUT",
                     "properties": {
+                        "type": "TEXT",
                         "question": "Do you have any feedback?",
-                        "type": "text",
                         "properties": {
                             "singleLine": false,
-                            "length": 100
+                            "maxLength": 100
                         }
                     }
                 }

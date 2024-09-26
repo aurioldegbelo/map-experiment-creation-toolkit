@@ -1,6 +1,10 @@
-type TextInputWidgetProperties = {
+type TextInputWidgetType = "text" | "number";
+
+type TextInputWidget = {
     singleLine: boolean,
-    length?: number 
+    minLength?: number,
+    maxLength?: number,
+    type?: TextInputWidgetType
 };
 
-export { TextInputWidgetProperties };
+export { TextInputWidget };

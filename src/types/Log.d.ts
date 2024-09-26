@@ -9,11 +9,11 @@ type TaskCompletionTime = {
     time: string
 }
 
-type ExperimentLog = {
+type Log = {
     experimentId: string,
     timestamp: string,
     answers: Answer[]
     taskCompletionTimes?: TaskCompletionTime[]
 }
 
-export { ExperimentLog }
+export { Log }

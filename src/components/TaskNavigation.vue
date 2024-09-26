@@ -31,8 +31,7 @@
                         </template>
                         <Widget 
                             v-if="index === 0"
-                            type="consent"
-                            :properties="{}"
+                            type="CONSENT"
                             @consent-checked="e => onConsentChecked(e)"
                         ></Widget>
                     </v-card>

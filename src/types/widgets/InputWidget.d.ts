@@ -1,17 +1,14 @@
 import type { TextInputWidgetProperties } from "./inputs/TextInputWidget";
 import type { LikertInputWidgetProperties } from "./inputs/LikertInputWidget";
 
-enum InputWidgetType {
-    text = "text",
-    likert = "likert"
-};
+type InputWidgetType = "TEXT" | "LIKERT";
 
-type InputWidgetPropertiesProperties = TextInputWidgetProperties | LikertInputWidgetProperties;
+type InputWidgetProperties = TextInputWidgetProperties | LikertInputWidgetProperties;
 
-type InputWidgetProperties = {
+type InputWidget = {
+    type: InputWidgetType,
     question: string,
-    type: InputWidgetType
-    properties: InputWidgetPropertiesProperties
+    properties: InputWidgetProperties
 };
 
-export { InputWidgetType, InputWidgetPropertiesProperties, InputWidgetProperties };
+export { InputWidget };

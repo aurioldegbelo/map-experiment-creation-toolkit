@@ -1,5 +1,5 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
+    "$schema": "https://json-schema.org/draft-07/schema",
     "type": "object",
     "required": [
         "type",
@@ -7,16 +7,12 @@
     ],
     "additionalProperties": false,
     "properties": {
-        "$schema": {
-            "type": "string",
-            "format": "uri-reference"
-        },
         "type": {
             "type": "string",
             "enum": [
-                "text",
-                "input",
-                "map"
+                "TEXT",
+                "INPUT",
+                "MAP"
             ]
         },
         "properties": {
@@ -26,7 +22,7 @@
     "if": {
         "properties": {
             "type": {
-                "const": "text"
+                "const": "TEXT"
             }
         }
     },
@@ -41,7 +37,7 @@
         "if": {
             "properties": {
                 "type": {
-                    "const": "input"
+                    "const": "INPUT"
                 }
             }
         },
@@ -53,9 +49,18 @@
             }
         },
         "else": {
-            "properties": {
+            "if": {
                 "properties": {
-                    "$ref": "./widgets/map-widget.schema.json"
+                    "type": {
+                        "const": "MAP"
+                    }
+                }
+            },
+            "then": {
+                "properties": {
+                    "properties": {
+                        "$ref": "./widgets/map-widget.schema.json"
+                    }
                 }
             }
         }
