@@ -61,7 +61,8 @@ type AppData = {
     step: number,
     answers: Log["answers"],
     consent: boolean,
-    timestamps: number[]
+    timestamps: number[],
+    experimentID: string
 }
 
 export default {
@@ -81,7 +82,8 @@ export default {
             step: 1,
             answers: [],
             consent: false,
-            timestamps: []
+            timestamps: [],
+            experimentID: import.meta.env.VITE_EXPERIMENT_ID
         }
     },
     computed: {
@@ -120,7 +122,7 @@ export default {
     },
     methods: {
         async _init() {
-            const source = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/config.json`;
+            const source = `/config/experiments/${this.experimentID}/config.json`;
             this.experiment = await (await fetch(source)).json();
         },
         onPreviousButton() {
