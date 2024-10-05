@@ -126,7 +126,7 @@ export default {
             return colorbrewer[scheme][this.numberOfClasses];
         },
         mapDataValues(): number[] {
-            return this.mapData.features.map(feature => feature?.properties && feature.properties[this.variable.id]);
+            return this.mapData.features.map(feature => feature?.properties && feature.properties[this.data.variable.id]);
         },
         labels(): string[] {
             const classes = this.classes;
@@ -188,7 +188,7 @@ export default {
         },
         async _getData(): Promise<FeatureCollection> {
             //FIXME: Ensure input data follows GeoJSON spec
-            const dataSource = `/data/experiments/${import.meta.env.VITE_EXPERIMENT_ID}/src/${this.data.source}`;
+            const dataSource = `/data/${this.data.source}`;
             const data = await (await fetch(dataSource)).json();
             return data;
         },
@@ -197,17 +197,17 @@ export default {
             let classes = null;
 
             switch (classificationMethod) {
-                case "equal interval": {
+                case "EQUAL_INTERVAL": {
                     classes = equalIntervalBuckets && equalIntervalBuckets(this.mapDataValues, this.numberOfClasses);
                     break;
                 }
 
-                case "jenks": {
+                case "JENKS": {
                     classes = jenksBuckets && jenksBuckets(this.mapDataValues, this.numberOfClasses);
                     break;
                 }
 
-                case "quantiles": {
+                case "QUANTILES": {
                     classes = quantileBuckets && quantileBuckets(this.mapDataValues, this.numberOfClasses);
                     break;
                 }
