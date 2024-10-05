@@ -2,6 +2,59 @@
 
 This toolkit aims for automating the creation on online experiments for evaluating the user experience of choropleth maps.
 
+## Setup
+### Option 1: Using Docker
+1. Download and install Docker for your operating system from the [Docker website](https://docs.docker.com/get-started/get-docker/).
+2. If correctly installed and booted up, the command `docker --version` should return the version you have installed:
+```bash
+Docker version 27.2.0, build 3ab4256
+```
+3. Clone the GitHub repository manually from this [site](https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit) or by using the following command in your terminal:
+```bash
+git clone https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit.git
+```
+4. Navigate to the cloned directory in your terminal, e.g.:
+```bash
+cd experiment-creation-toolkit
+```
+5. Create a new file in the root directory of your project called `.env` with the following content:
+```bash
+VITE_EXPERIMENT_ID = example
+```
+6. Start the application in a Docker container by using the following command:
+```bash
+docker-compose up
+```
+6. Open your web browser and go to `localhost:3000`.
+
+### Option 2: Using Node.js
+1. Download and install Node.js for your operating system from the [Node.js website](https://nodejs.org/en/download/prebuilt-installer).
+2. If correctly installed, the command `node -v` should return the version you have installed:
+```bash
+v21.7.2
+```
+3. Clone the GitHub repository manually from this [site](https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit) or by using the following command in your terminal:
+```bash
+git clone https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit.git
+```
+4. Navigate to the cloned directory in your terminal, e.g.:
+```bash
+cd experiment-creation-toolkit
+```
+5. Install required packages:
+```bash
+npm ci
+```
+6. Create a new file in the root directory of your project called `.env` with the following content:
+```bash
+VITE_EXPERIMENT_ID = example
+```
+7. Start the development server by using the following command:
+```bash
+npm run dev
+```
+8. Open your web browser and go to `localhost:5173`.
+
 ## Documentation
 
 ### Experiment
