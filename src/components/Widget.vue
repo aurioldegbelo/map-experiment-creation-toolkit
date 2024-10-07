@@ -17,6 +17,7 @@
             :data="properties?.data"
             :classificationMethod="properties?.classificationMethod" 
             :colorScheme="properties?.colorScheme"
+            :classLabels="properties?.classLabels"
         >
         </MapWidget>
         <ConsentWidget v-if="isConsentWidget"

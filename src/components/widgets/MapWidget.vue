@@ -75,6 +75,11 @@ export default {
         colorScheme: {
             type: String as PropType<MapWidget["colorScheme"]>,
             required: true
+        },
+        classLabels: {
+            type: Array as PropType<MapWidget["classLabels"]>,
+            required: false,
+            default: []
         }
     },
     data(): MapWidgetData {
@@ -129,6 +134,10 @@ export default {
             return this.mapData.features.map(feature => feature?.properties && feature.properties[this.data.variable.id]);
         },
         labels(): string[] {
+            if (this.classLabels.length > 0) {
+                return this.classLabels;
+            }
+
             const classes = this.classes;
             let result = [] as string[];
             for (let i = 0; i < classes.length - 1; i++) {
@@ -150,7 +159,7 @@ export default {
             });
         },
         legendTitle(): string {
-            return (this.data.variable.label ? this.data.variable.label : this.data.variable.id) + ` (in ${this.data.variable.unit})`;
+            return (this.data.variable.label ? this.data.variable.label : this.data.variable.id) + (this.data.variable.unit ? ` (in ${this.data.variable.unit})` : "");
         },
         attributionLabel(): string {
             const url = this.data?.attribution?.url;
@@ -195,6 +204,11 @@ export default {
         async _calculateClasses(): Promise<number[]> {
             const classificationMethod = this.classificationMethod.toString();
             let classes = null;
+            const regex = /^\[.*\]$/;
+
+            if (regex.test(classificationMethod)) {
+                classes = JSON.parse(classificationMethod);
+            }
 
             switch (classificationMethod) {
                 case "EQUAL_INTERVAL": {
@@ -209,6 +223,12 @@ export default {
 
                 case "QUANTILES": {
                     classes = quantileBuckets && quantileBuckets(this.mapDataValues, this.numberOfClasses);
+                    break;
+                }
+
+                case "UNIQUE_VALUES": {
+                    let temp = Array.from(new Set(this.mapDataValues));
+                    classes = temp.sort();
                     break;
                 }
             }

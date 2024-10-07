@@ -15,13 +15,14 @@ type Variable = {
     unit?: string
 };
 
-type ClassificationMethod = "EQUAL_INTERVAL" | "JENKS" | "QUANTILES";
+type ClassificationMethod = "EQUAL_INTERVAL" | "JENKS" | "QUANTILES" | "UNIQUE_VALUES";
 
 type MapWidget = {
     title?: string,
     data: Data,
     classificationMethod: ClassificationMethod,
-    colorScheme: string
+    colorScheme: string,
+    classLabels: string[]
 };
 
 export { MapWidget };

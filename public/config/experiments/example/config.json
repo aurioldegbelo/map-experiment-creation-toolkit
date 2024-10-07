@@ -113,9 +113,9 @@
                     "properties": {
                         "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
                         "data": {
-                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "source": "us-states-data.json",
                             "variable": {
-                                "id": "Obesity",
+                                "id": "obesity",
                                 "unit": "%"
                             },
                             "attribution": {
@@ -141,39 +141,21 @@
                 {
                     "type": "MAP",
                     "properties": {
-                        "title": "USA: National Obesity Rate By State 2015 (5 classes, equal interval)",
+                        "title": "USA: 2020 Presedential Election Results",
                         "data": {
-                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
+                            "source": "us-states-data.json",
                             "variable": {
-                                "id": "Obesity",
-                                "unit": "%"
+                                "id": "party",
+                                "label": "Candidate"
                             },
                             "attribution": {
-                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
-                                "label": "Lake County Illinois GIS"
+                                "url": "https://www.270towin.com/2020_Election/",
+                                "label": "270toWin"
                             }
                         },
-                        "classificationMethod": "EQUAL_INTERVAL",
-                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=5"
-                    }
-                },
-                {
-                    "type": "MAP",
-                    "properties": {
-                        "title": "USA: National Obesity Rate By State 2015 (5 classes, jenks)",
-                        "data": {
-                            "source": "LakeCounty_Health_NationalObesityByState_2015.json",
-                            "variable": {
-                                "id": "Obesity",
-                                "unit": "%"
-                            },
-                            "attribution": {
-                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
-                                "label": "Lake County Illinois GIS"
-                            }
-                        },
-                        "classificationMethod": "JENKS",
-                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
+                        "classificationMethod": "UNIQUE_VALUES",
+                        "colorScheme": "https://colorbrewer2.org/?type=qualitative&scheme=Set1&n=3",
+                        "classLabels": ["Biden", "Trump", "Jorgensen"]
                     }
                 }
             ]
