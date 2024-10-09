@@ -9,7 +9,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],
-      "experiments/*": ["./public/data/experiments/*"]
+      "experiments/*": ["./public/experiments/*"]
     }
   }
 }

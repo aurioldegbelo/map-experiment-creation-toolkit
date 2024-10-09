@@ -122,7 +122,7 @@ export default {
     },
     methods: {
         async _init() {
-            const source = `/config/experiments/${this.experimentID}/config.json`;
+            const source = `/experiments/${this.experimentID}.json`;
             this.experiment = await (await fetch(source)).json();
         },
         onPreviousButton() {

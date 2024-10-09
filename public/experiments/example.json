@@ -13,7 +13,7 @@
     "enableRestart": true,
     "tasks": [
         {
-            "title": "Introduction",
+            "title": "Test",
             "widgets": [
                 {
                     "type": "TEXT",

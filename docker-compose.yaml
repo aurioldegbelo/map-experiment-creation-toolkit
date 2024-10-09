@@ -5,4 +5,4 @@ services:
     ports:
       - "3000:80"
     volumes:
-      - ./public/config/experiments/${VITE_EXPERIMENT_ID}/config.json:/usr/share/nginx/html/config/experiments/${VITE_EXPERIMENT_ID}/config.json  # Automatically mount the config.json file
+      - ./public/experiments/${VITE_EXPERIMENT_ID}.json:/usr/share/nginx/html/experiments/${VITE_EXPERIMENT_ID}.json  # Automatically mount the config.json file
