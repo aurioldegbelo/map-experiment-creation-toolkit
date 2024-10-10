@@ -25,7 +25,7 @@ VITE_EXPERIMENT_ID = example
 ```bash
 docker-compose up
 ```
-6. Open your web browser and go to `localhost:3000`.
+7. Open your web browser and go to `localhost:3000`.
 
 ### Option 2: Using Node.js
 1. Download and install Node.js for your operating system from the [Node.js website](https://nodejs.org/en/download/prebuilt-installer).
