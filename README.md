@@ -23,7 +23,7 @@ VITE_EXPERIMENT_ID = example
 ```
 6. Start the application in a Docker container by using the following command:
 ```bash
-docker-compose up
+docker-compose up --build
 ```
 7. Open your web browser and go to `localhost:3000`.
 
