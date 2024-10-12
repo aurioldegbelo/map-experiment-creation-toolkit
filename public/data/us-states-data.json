@@ -15,7 +15,7 @@
                 "abbreviation": "AL",
                 "density": 94.65,
                 "obesity": 35.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -165,7 +165,7 @@
                 "abbreviation": "AK",
                 "density": 1.264,
                 "obesity": 29.8,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -4633,7 +4633,7 @@
                 "abbreviation": "AZ",
                 "density": 57.05,
                 "obesity": 28.4,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -4779,7 +4779,7 @@
                 "abbreviation": "AR",
                 "density": 56.43,
                 "obesity": 34.5,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -4945,7 +4945,7 @@
                 "abbreviation": "CA",
                 "density": 241.7,
                 "obesity": 24.2,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -5335,7 +5335,7 @@
                 "abbreviation": "CO",
                 "density": 49.33,
                 "obesity": 20.2,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -5417,7 +5417,7 @@
                 "abbreviation": "CT",
                 "density": 739.1,
                 "obesity": 25.3,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -5499,7 +5499,7 @@
                 "abbreviation": "DE",
                 "density": 464.3,
                 "obesity": 29.7,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -5569,7 +5569,7 @@
                 "abbreviation": "DC",
                 "density": 10065,
                 "obesity": 22.1,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -5607,7 +5607,7 @@
                 "abbreviation": "FL",
                 "density": 353.4,
                 "obesity": 26.8,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -5937,7 +5937,7 @@
                 "abbreviation": "GA",
                 "density": 169.5,
                 "obesity": 30.7,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -6159,7 +6159,7 @@
                 "abbreviation": "HI",
                 "density": 214.1,
                 "obesity": 22.7,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -6391,7 +6391,7 @@
                 "abbreviation": "ID",
                 "density": 19.15,
                 "obesity": 28.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -6673,7 +6673,7 @@
                 "abbreviation": "IL",
                 "density": 231.5,
                 "obesity": 30.8,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -6959,7 +6959,7 @@
                 "abbreviation": "IN",
                 "density": 181.7,
                 "obesity": 31.3,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -7161,7 +7161,7 @@
                 "abbreviation": "IA",
                 "density": 54.81,
                 "obesity": 32.1,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -7379,7 +7379,7 @@
                 "abbreviation": "KS",
                 "density": 35.09,
                 "obesity": 34.2,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -7449,7 +7449,7 @@
                 "abbreviation": "KY",
                 "density": 110,
                 "obesity": 34.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -7767,7 +7767,7 @@
                 "abbreviation": "LA",
                 "density": 105,
                 "obesity": 36.2,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -8089,7 +8089,7 @@
                 "abbreviation": "ME",
                 "density": 43.04,
                 "obesity": 30,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -8371,7 +8371,7 @@
                 "abbreviation": "MD",
                 "density": 596.3,
                 "obesity": 28.9,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -8651,7 +8651,7 @@
                 "abbreviation": "MA",
                 "density": 840.2,
                 "obesity": 24.3,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -8809,7 +8809,7 @@
                 "abbreviation": "MI",
                 "density": 173.9,
                 "obesity": 31.2,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -9449,7 +9449,7 @@
                 "abbreviation": "MN",
                 "density": 67.14,
                 "obesity": 26.1,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -9799,7 +9799,7 @@
                 "abbreviation": "MS",
                 "density": 63.5,
                 "obesity": 35.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -10001,7 +10001,7 @@
                 "abbreviation": "MO",
                 "density": 87.26,
                 "obesity": 32.4,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -10231,7 +10231,7 @@
                 "abbreviation": "MT",
                 "density": 6.858,
                 "obesity": 23.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -10457,7 +10457,7 @@
                 "abbreviation": "NE",
                 "density": 23.97,
                 "obesity": 31.4,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -10591,7 +10591,7 @@
                 "abbreviation": "NV",
                 "density": 24.8,
                 "obesity": 26.7,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -10693,7 +10693,7 @@
                 "abbreviation": "NH",
                 "density": 147,
                 "obesity": 26.3,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -10823,7 +10823,7 @@
                 "abbreviation": "NJ",
                 "density": 1189,
                 "obesity": 25.6,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -10969,7 +10969,7 @@
                 "abbreviation": "NM",
                 "density": 17.16,
                 "obesity": 28.8,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -11055,7 +11055,7 @@
                 "abbreviation": "NY",
                 "density": 412.3,
                 "obesity": 25,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -11345,7 +11345,7 @@
                 "abbreviation": "NC",
                 "density": 198.2,
                 "obesity": 30.1,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -11607,7 +11607,7 @@
                 "abbreviation": "ND",
                 "density": 9.916,
                 "obesity": 31,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -11689,7 +11689,7 @@
                 "abbreviation": "OH",
                 "density": 281.9,
                 "obesity": 29.8,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -11895,7 +11895,7 @@
                 "abbreviation": "OK",
                 "density": 55.22,
                 "obesity": 33.9,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -12093,7 +12093,7 @@
                 "abbreviation": "OR",
                 "density": 40.33,
                 "obesity": 30.1,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -12335,7 +12335,7 @@
                 "abbreviation": "PA",
                 "density": 284.3,
                 "obesity": 30,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -12485,7 +12485,7 @@
                 "abbreviation": "RI",
                 "density": 1006,
                 "obesity": 26,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -12569,7 +12569,7 @@
                 "abbreviation": "SC",
                 "density": 155.4,
                 "obesity": 31.7,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -12763,7 +12763,7 @@
                 "abbreviation": "SD",
                 "density": 98.07,
                 "obesity": 30.4,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -12897,7 +12897,7 @@
                 "abbreviation": "TN",
                 "density": 88.08,
                 "obesity": 33.8,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -13087,7 +13087,7 @@
                 "abbreviation": "TX",
                 "density": 98.07,
                 "obesity": 32.4,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -13713,7 +13713,7 @@
                 "abbreviation": "UT",
                 "density": 34.3,
                 "obesity": 24.5,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -13779,7 +13779,7 @@
                 "abbreviation": "VT",
                 "density": 67.73,
                 "obesity": 25.1,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -13909,7 +13909,7 @@
                 "abbreviation": "VA",
                 "density": 204.5,
                 "obesity": 29.2,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -14257,7 +14257,7 @@
                 "abbreviation": "WA",
                 "density": 102.6,
                 "obesity": 26.4,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "MultiPolygon",
@@ -14573,7 +14573,7 @@
                 "abbreviation": "WV",
                 "density": 77.06,
                 "obesity": 35.6,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
@@ -14851,7 +14851,7 @@
                 "abbreviation": "WI",
                 "density": 105.2,
                 "obesity": 30.7,
-                "party": 0
+                "vote": 0
             },
             "geometry": {
                 "type": "Polygon",
@@ -15169,7 +15169,7 @@
                 "abbreviation": "WY",
                 "density": 5.851,
                 "obesity": 29,
-                "party": 1
+                "vote": 1
             },
             "geometry": {
                 "type": "Polygon",
