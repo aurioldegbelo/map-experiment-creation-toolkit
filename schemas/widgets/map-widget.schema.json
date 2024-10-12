@@ -21,7 +21,7 @@
                 "EQUAL_INTERVAL",
                 "JENKS",
                 "QUANTILES",
-                "UNIQUE_VALUES"
+                "QUALITATIVE"
             ]
         },
         "colorScheme": {

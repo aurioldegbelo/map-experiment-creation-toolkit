@@ -15,7 +15,7 @@ type Variable = {
     unit?: string
 };
 
-type ClassificationMethod = "EQUAL_INTERVAL" | "JENKS" | "QUANTILES" | "UNIQUE_VALUES";
+type ClassificationMethod = "EQUAL_INTERVAL" | "JENKS" | "QUANTILES" | "QUALITATIVE";
 
 type MapWidget = {
     title?: string,

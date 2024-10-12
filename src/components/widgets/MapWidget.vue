@@ -226,7 +226,7 @@ export default {
                     break;
                 }
 
-                case "UNIQUE_VALUES": {
+                case "QUALITATIVE": {
                     let temp = Array.from(new Set(this.mapDataValues));
                     classes = temp.sort();
                     break;

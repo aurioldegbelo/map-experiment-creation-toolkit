@@ -13,7 +13,7 @@
     "enableRestart": true,
     "tasks": [
         {
-            "title": "Test",
+            "title": "Test2",
             "widgets": [
                 {
                     "type": "TEXT",
@@ -155,7 +155,46 @@
                         },
                         "classificationMethod": "UNIQUE_VALUES",
                         "colorScheme": "https://colorbrewer2.org/?type=qualitative&scheme=Set1&n=3",
-                        "classLabels": ["Biden", "Trump", "Jorgensen"]
+                        "classLabels": [
+                            "Biden",
+                            "Trump",
+                            "Jorgensen"
+                        ]
+                    }
+                }
+            ]
+        },
+        {
+            "title": "Comparison of Two Map Prototypes 2",
+            "widgets": [
+                {
+                    "type": "TEXT",
+                    "properties": {
+                        "text": "Please use the two maps below to answer the following questions."
+                    }
+                },
+                {
+                    "type": "MAP",
+                    "properties": {
+                        "title": "USA: 2020 Presedential Election Results",
+                        "data": {
+                            "source": "us-states-data.json",
+                            "variable": {
+                                "id": "party",
+                                "label": "Candidate"
+                            },
+                            "attribution": {
+                                "url": "https://www.270towin.com/2020_Election/",
+                                "label": "270toWin"
+                            }
+                        },
+                        "classificationMethod": "QUALITATIVE",
+                        "colorScheme": "https://colorbrewer2.org/?type=qualitative&scheme=Set1&n=3",
+                        "classLabels": [
+                            "Biden",
+                            "Trump",
+                            "Jorgensen"
+                        ]
                     }
                 }
             ]
