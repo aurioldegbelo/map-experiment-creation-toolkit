@@ -204,11 +204,8 @@ export default {
         async _calculateClasses(): Promise<number[]> {
             const classificationMethod = this.classificationMethod.toString();
             let classes = null;
-            const regex = /^\[.*\]$/;
 
-            if (regex.test(classificationMethod)) {
-                classes = JSON.parse(classificationMethod);
-            }
+            console.log(this.mapDataValues, this.numberOfClasses);
 
             switch (classificationMethod) {
                 case "EQUAL_INTERVAL": {

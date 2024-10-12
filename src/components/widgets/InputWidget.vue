@@ -6,8 +6,10 @@
         <TextInputWidget 
             v-if="isTextInputWidget"
             v-model="enteredValue"
-            :singleLine="properties.singleLine" 
+            :singleLine="properties.singleLine"
+            :minLength="properties.minLength"
             :maxLength="properties.maxLength"
+            :type="properties.type"
             @value-changed="(value: string) => onTextInputChange(value)"
         >
         </TextInputWidget>

@@ -5,8 +5,10 @@
         clearable
         color="primary"
         density="compact"
+        :minLength="minLength"
         :maxLength="maxLength"
         :rules="rules"
+        :type="type"
         variant="outlined"
     ></v-text-field>
     <v-textarea v-else
@@ -15,13 +17,17 @@
         color="primary"
         :counter="maxLength"
         density="compact"
+        :minLength="minLength"
         :maxLength="maxLength"
+        :type="type"
         variant="outlined"
     >
     </v-textarea>
 </template>
 
 <script lang="ts">
+import type { TextInputWidget } from '@/types/widgets/inputs/MapWidget'
+import type { PropType } from 'vue';
 import type { VTextField } from 'vuetify/components';
 
 type TextInputWidgetData = {
@@ -34,8 +40,16 @@ export default {
             type: Boolean,
             required: true
         },
+        minLength: {
+            type: Number,
+            required: false
+        },
         maxLength: {
             type: Number,
+            required: false
+        },
+        type: {
+            type: String as PropType<TextInputWidget["type"]>,
             required: false
         },
         value: {
