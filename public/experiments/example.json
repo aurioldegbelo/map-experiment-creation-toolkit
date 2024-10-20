@@ -1,5 +1,5 @@
 {
-    "$schema": "../../../../schemas/experiment.schema.json",
+    "$schema": "../../schemas/experiment.schema.json",
     "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
     "description": "This is an automatically generated experiment. It contains data from a sample dataset for demonstration purposes.",
     "authors": [
@@ -9,8 +9,6 @@
             "email": "max.gadomski@uni-muenster.de"
         }
     ],
-    "measureTaskCompletionTime": true,
-    "enableRestart": true,
     "tasks": [
         {
             "title": "Introduction",
@@ -18,34 +16,34 @@
                 {
                     "type": "TEXT",
                     "properties": {
-                        "text": "This questionnaire is part of my master's thesis for the programme Geoinformatics and Spatial Data Science at the University of Münster (DE). It was written in collaboration with 52° North GmbH and is a contribution to the I-CISK project."
+                        "heading": "Welcome to this Experiment about Choropleth Maps",
+                        "text": "In this interactive study, you'll explore choropleth maps—visual tools that use color to represent data across different geographic areas. By engaging with various datasets, you'll uncover patterns and trends that highlight social, economic, and environmental issues."
                     }
                 },
                 {
                     "type": "TEXT",
                     "properties": {
-                        "text": "The goal of this questionnaire is to find out which type of map is the most suitable for understanding the uncertainty inherent to these forecasts. We highly value your input in shaping effective climate communication!"
+                        "text": "Your insights will help us understand how people interpret visual data. Thank you for participating!"
+                    }
+                },
+                {
+                    "type": "TEXT",
+                    "properties": {
+                        "text": "Please read the information below carefully."
                     }
                 },
                 {
                     "type": "TEXT",
                     "properties": {
                         "heading": "Privacy and data protection statement",
-                        "text": "The data collected in this questionnaire will include your responses to the questions presented. The information collected is intended solely for the purpose of research and analysis. It will not be used for any commercial, marketing, or promotional activities. We will not collect or store any personally identifiable information (PII) such as names, email addresses, or other identifying details. Your responses will remain anonymous."
+                        "text": "Your privacy is important to us. We collect personal information (such as your name and email) and non-personal data during this online experiment solely for research purposes, ensuring individual responses remain confidential. We implement measures to protect your data from unauthorized access and you have the right to access, correct, or request deletion of your personal information. For any questions, please contact us at <a href='mailto:researcher@university.com'>researcher@university.com</a> ."
                     }
                 },
                 {
                     "type": "TEXT",
                     "properties": {
                         "heading": "Consent",
-                        "text": "Participation in this questionnaire is entirely voluntary. You are not required to provide any information if you do not wish to do so. By proceeding with this questionnaire, you consent to the collection and use of your responses as described in the privacy statement."
-                    }
-                },
-                {
-                    "type": "TEXT",
-                    "properties": {
-                        "heading": "Contact",
-                        "text": "If you have any questions about the questionnaire or concerns about the privacy of your data, please contact me (Merel) at the following email address: <a href='mailto:m.vogel@52north.org'>m.vogel@52north.org</a>."
+                        "text": "By participating in this online experiment, you acknowledge that you have read and understood the purpose of the study and how your data will be used. You consent to the collection of your personal information (such as name and email) and non-personal data for research purposes. Your participation is voluntary, and you may withdraw at any time without penalty. By ticking the checkbox below you agree to these conditions and start the experiment."
                     }
                 }
             ]
@@ -53,6 +51,20 @@
         {
             "title": "Introductory Questions",
             "widgets": [
+                {
+                    "type": "INPUT",
+                    "properties": {
+                        "question": "What is your gender?",
+                        "type": "LIKERT",
+                        "properties": {
+                            "items": [
+                                "male",
+                                "female",
+                                "diverse"
+                            ]
+                        }
+                    }
+                },
                 {
                     "type": "INPUT",
                     "properties": {
@@ -80,22 +92,6 @@
                             ]
                         }
                     }
-                },
-                {
-                    "type": "INPUT",
-                    "properties": {
-                        "question": "Have you heard of or seen uncertainty information in climate forecasts before this survey?",
-                        "type": "LIKERT",
-                        "properties": {
-                            "items": [
-                                "I have never heard of it.",
-                                "I have heard of uncertainty information, but not seen it in forecasts",
-                                "I have heard of it, but do not understand it",
-                                "I understand it to some extent",
-                                "I am very familiar with uncertainty information in climate forecasts"
-                            ]
-                        }
-                    }
                 }
             ]
         },
@@ -105,96 +101,86 @@
                 {
                     "type": "TEXT",
                     "properties": {
-                        "text": "Please use the map below to answer the following questions."
+                        "text": "Please use the following map to answer the question below."
                     }
                 },
                 {
                     "type": "MAP",
                     "properties": {
-                        "title": "USA: National Obesity Rate By State 2015 (3 classes, equal interval)",
+                        "title": "USA: Population Density By State",
                         "data": {
                             "source": "us-states-data.json",
                             "variable": {
-                                "id": "obesity",
-                                "unit": "%"
+                                "id": "density",
+                                "label": "Population Density",
+                                "unit": "Pop. per square mile"
                             },
                             "attribution": {
-                                "url": "https://catalog.data.gov/dataset/national-obesity-by-state-2094c",
-                                "label": "Lake County Illinois GIS"
+                                "url": "https://github.com/PublicaMundi/MappingAPI/tree/master",
+                                "label": "Publica Mundi (GitHub)"
                             }
                         },
-                        "classificationMethod": "EQUAL_INTERVAL",
-                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=OrRd&n=3"
+                        "classificationMethod": "QUANTILES",
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=YlOrRd&n=3"
+                    }
+                },
+                {
+                    "type": "INPUT",
+                    "properties": {
+                        "question": "What is the largest state with the lowest population density?",
+                        "type": "LIKERT",
+                        "properties": {
+                            "items": [
+                                "California",
+                                "Alaska",
+                                "You can not answer the question using this map."
+                            ]
+                        }
                     }
                 }
             ]
         },
         {
-            "title": "Comparison of Two Map Prototypes",
+            "title": "Second Map Prototype",
             "widgets": [
                 {
                     "type": "TEXT",
                     "properties": {
-                        "text": "Please use the two maps below to answer the following questions."
+                        "text": "Please use the following map to answer the question below."
                     }
                 },
                 {
                     "type": "MAP",
                     "properties": {
-                        "title": "USA: 2020 Presedential Election Results",
+                        "title": "USA: Population Density By State",
                         "data": {
                             "source": "us-states-data.json",
                             "variable": {
-                                "id": "party",
-                                "label": "Candidate"
+                                "id": "density",
+                                "label": "Population Density",
+                                "unit": "Pop. per square mile"
                             },
                             "attribution": {
-                                "url": "https://www.270towin.com/2020_Election/",
-                                "label": "270toWin"
+                                "url": "https://github.com/PublicaMundi/MappingAPI/tree/master",
+                                "label": "Publica Mundi (GitHub)"
                             }
                         },
-                        "classificationMethod": "QUALITATIVE",
-                        "colorScheme": "https://colorbrewer2.org/?type=qualitative&scheme=Set1&n=3",
-                        "classLabels": [
-                            "Biden",
-                            "Trump",
-                            "Jorgensen"
-                        ]
-                    }
-                }
-            ]
-        },
-        {
-            "title": "Comparison of Two Map Prototypes 2",
-            "widgets": [
-                {
-                    "type": "TEXT",
-                    "properties": {
-                        "text": "Please use the two maps below to answer the following questions."
+                        "classificationMethod": "JENKS",
+                        "colorScheme": "https://colorbrewer2.org/?type=sequential&scheme=YlOrRd&n=3"
                     }
                 },
                 {
-                    "type": "MAP",
+                    "type": "INPUT",
                     "properties": {
-                        "title": "USA: 2020 Presedential Election Results",
-                        "data": {
-                            "source": "us-states-data.json",
-                            "variable": {
-                                "id": "party",
-                                "label": "Candidate"
-                            },
-                            "attribution": {
-                                "url": "https://www.270towin.com/2020_Election/",
-                                "label": "270toWin"
-                            }
-                        },
-                        "classificationMethod": "QUALITATIVE",
-                        "colorScheme": "https://colorbrewer2.org/?type=qualitative&scheme=Set1&n=3",
-                        "classLabels": [
-                            "Biden",
-                            "Trump",
-                            "Jorgensen"
-                        ]
+                        "question": "What is the largest state with the lowest population density?",
+                        "type": "LIKERT",
+                        "properties": {
+                            "items": [
+                                "California",
+                                "Alaska",
+                                "You can not answer the question using this map."
+                            ]
+                        }
                     }
                 }
             ]
@@ -206,7 +192,7 @@
                     "type": "INPUT",
                     "properties": {
                         "type": "TEXT",
-                        "question": "Do you have any feedback?",
+                        "question": "Do you have any feedback about this experiment you would like to share?",
                         "properties": {
                             "singleLine": false,
                             "maxLength": 100
