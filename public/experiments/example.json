@@ -1,7 +1,7 @@
 {
     "$schema": "../../schemas/experiment.schema.json",
-    "title": "Map visualizations for uncertainty in climate projections: a questionnaire",
-    "description": "This is an automatically generated experiment. It contains data from a sample dataset for demonstration purposes.",
+    "title": "An Experiment About Choropleth Maps",
+    "description": "This is an example experiment for demonstration purposes.",
     "authors": [
         {
             "firstName": "Max",
