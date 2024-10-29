@@ -3,7 +3,9 @@
 This toolkit aims for automating the creation on online experiments for evaluating the user experience of choropleth maps.
 
 ## Installation
-### Option 1: Using Docker
+<details>
+    <summary>Using Docker</summary>
+    
 1. Download and install Docker for your operating system from the [Docker website](https://docs.docker.com/get-started/get-docker/).
 2. If correctly installed and booted up, the command `docker --version` should return the version you have installed:
 ```bash
@@ -17,6 +19,7 @@ git clone https://github.com/Experiment-Creation-Toolkit/experiment-creation-too
 ```bash
 cd experiment-creation-toolkit
 ```
+</details>
 
 ## Create and launch an experiment
 1. Create a new JSON file in the directory `<repository>/public/experiments/`, e.g. `example.json`.
