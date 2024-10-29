@@ -21,7 +21,7 @@ cd experiment-creation-toolkit
 ```
 </details>
 
-## Usage
+## How-To
 <details>
     <summary>Create and launch an experiment</summary>
     
@@ -36,6 +36,17 @@ VITE_EXPERIMENT_ID = <File name of your JSON config file>
 docker-compose up --build
 ```
 4. Open your web browser and go to `localhost:3000`.
+</details>
+
+<details>
+    <summary>Generate a color scheme for your map using ColorBrewer</summary>
+
+1. Navigate to https://colorbrewer2.org.
+2. Select the number of classes you want to visualize.
+3. Select the nature of your data (sequential, diverging, qualitative).
+4. Select a color palette you like.
+5. Expand the `Export` section and copy the permalink. (Do not copy the URL in the adress bar!)
+6. Paste the permalink in your MapWidget.
 </details>
 
 ## Documentation
