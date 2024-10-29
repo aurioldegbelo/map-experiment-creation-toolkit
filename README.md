@@ -3,7 +3,7 @@
 This toolkit aims for automating the creation on online experiments for evaluating the user experience of choropleth maps.
 
 ## Installation
-<details>
+<details open>
     <summary>Using Docker</summary>
     
 1. Download and install Docker for your operating system from the [Docker website](https://docs.docker.com/get-started/get-docker/).
