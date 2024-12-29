@@ -46,7 +46,10 @@ npm ci
 ## How-To
 <details>
     <summary>Create and launch an experiment</summary>
-    
+
+<details>
+    <summary>Using Docker:</summary>
+
 1. Create a new JSON file in the directory `<repository>/public/experiments/`, e.g. `example.json`.
 2. Edit the created JSON file to your likings to configure a new experiment.
 3. Create a new file in the root directory of your project called `.env` with the following content:
@@ -58,6 +61,7 @@ VITE_EXPERIMENT_ID = <File name of your JSON config file>
 docker-compose up --build
 ```
 4. Open your web browser and go to `localhost:3000`.
+</details>
 </details>
 
 <details>
