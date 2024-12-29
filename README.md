@@ -48,7 +48,7 @@ npm ci
     <summary>Create and launch an experiment</summary>
 
 <details>
-    <summary>Using Docker:</summary>
+    <summary>Using Docker</summary>
 
 1. Create a new JSON file in the directory `<repository>/public/experiments/`, e.g. `example.json`.
 2. Edit the created JSON file to your likings to configure a new experiment.
@@ -56,12 +56,29 @@ npm ci
 ```bash
 VITE_EXPERIMENT_ID = <File name of your JSON config file>
 ```
-3. Start the application in a Docker container by using the following command:
+4. Start the application in a Docker container by using the following command:
 ```bash
 docker-compose up --build
 ```
-4. Open your web browser and go to `localhost:3000`.
+5. Open your web browser and go to `localhost:3000`.
 </details>
+
+<details>
+    <summary>Using Node.js</summary>
+
+1. Create a new JSON file in the directory `<repository>/public/experiments/`, e.g. `example.json`.
+2. Edit the created JSON file to your likings to configure a new experiment.
+3. Create a new file in the root directory of your project called `.env` with the following content:
+```bash
+VITE_EXPERIMENT_ID = example
+```
+4. Start the development server by using the following command:
+```bash
+npm run dev
+```
+5. Open your web browser and go to `localhost:5173`.
+</details>
+
 </details>
 
 <details>
