@@ -21,6 +21,28 @@ cd experiment-creation-toolkit
 ```
 </details>
 
+<details>
+    
+</details>
+1. Download and install Node.js for your operating system from the [Node.js website](https://nodejs.org/en/download/prebuilt-installer).
+2. If correctly installed, the command `node -v` should return the version you have installed:
+```bash
+v21.7.2
+```
+3. Clone the GitHub repository manually from this [site](https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit) or by using the following command in your terminal:
+```bash
+git clone https://github.com/Experiment-Creation-Toolkit/experiment-creation-toolkit.git
+```
+4. Navigate to the cloned directory in your terminal, e.g.:
+```bash
+cd experiment-creation-toolkit
+```
+5. Install required packages:
+```bash
+npm ci
+```
+</details>
+
 ## How-To
 <details>
     <summary>Create and launch an experiment</summary>
