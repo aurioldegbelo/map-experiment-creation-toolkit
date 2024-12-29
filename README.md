@@ -20,10 +20,9 @@ git clone https://github.com/Experiment-Creation-Toolkit/experiment-creation-too
 cd experiment-creation-toolkit
 ```
 </details>
+    <summary>Using Node.js</summary>
 
 <details>
-    
-</details>
 1. Download and install Node.js for your operating system from the [Node.js website](https://nodejs.org/en/download/prebuilt-installer).
 2. If correctly installed, the command `node -v` should return the version you have installed:
 ```bash
