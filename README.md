@@ -2,7 +2,13 @@
 
 This toolkit aims for automating the creation on online experiments for evaluating the user experience of choropleth maps.
 
-<video src='videos/1_Example of Map Creation.mp4'/></video> | <video src='videos/2_Example of Questions.mp4'/></video>
+## Examples
+
+https://github.com/user-attachments/assets/289682b2-89e9-4e8e-b39a-16d99a96eb7b
+
+https://github.com/user-attachments/assets/532a8776-ad86-4e7a-bdf7-968b2e302ec8
+
+For additional examples, see [here](https://www.youtube.com/playlist?list=PLRTVkC7KAm92mgMhwAxmmo9zMbodW9ElV)
 
 ## Installation
 <details open>
