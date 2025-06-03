@@ -8,7 +8,7 @@ https://github.com/user-attachments/assets/289682b2-89e9-4e8e-b39a-16d99a96eb7b
 
 https://github.com/user-attachments/assets/532a8776-ad86-4e7a-bdf7-968b2e302ec8
 
-For additional examples, see [here](https://www.youtube.com/playlist?list=PLRTVkC7KAm92mgMhwAxmmo9zMbodW9ElV)
+For additional examples, see [here](https://www.youtube.com/playlist?list=PLRTVkC7KAm92mgMhwAxmmo9zMbodW9ElV).
 
 ## Installation
 <details open>
