@@ -2,6 +2,21 @@
 
 This toolkit aims for automating the creation on online experiments for evaluating the user experience of choropleth maps.
 
+## Examples
+
+https://github.com/user-attachments/assets/289682b2-89e9-4e8e-b39a-16d99a96eb7b
+
+https://github.com/user-attachments/assets/532a8776-ad86-4e7a-bdf7-968b2e302ec8
+
+For additional examples, see [here](https://www.youtube.com/playlist?list=PLRTVkC7KAm92mgMhwAxmmo9zMbodW9ElV).
+
+## Data Model 
+<img alt="toolkit" src="https://github.com/user-attachments/assets/1b04d9f3-fd0e-467e-8957-b50a1650ccb3" />
+
+## Technologies 
+
+<img alt="toolkit" src="https://github.com/user-attachments/assets/a286659e-09bb-4b2a-aa9b-f237ec0bc79a" />
+
 ## Installation
 <details open>
     <summary>Using Docker</summary>
